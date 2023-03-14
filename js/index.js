@@ -107,10 +107,19 @@ console.log(disfraces);
 
 //4)Prompt pidiéndole al usuario un dato:
 //El array.slice sirve para copiar el array original y guardarlo, ya que el método sort es un método destructivo
-let criterio = prompt("¡Hola " + nombreUsuario + "! Te damos la bienvenida a nuestro catálogo. Por favor, elige un criterio con el que deseas ver nuestros productos:\n\n1) A-Z\n2) Z-A\n3) Menor a mayor precio\n4) Mayor a menor precio\n\nUna vez que hayas elegido tu criterio de ordenación, nuestro catálogo se actualizará automáticamente para mostrar los productos de acuerdo a tu elección. ¡Disfruta navegando por nuestra selección!")
+let criterio;
+
+while (true) {
+  criterio = prompt("¡Hola " + nombreUsuario + "! Te damos la bienvenida a nuestro catálogo. Por favor, elige un criterio con el que deseas ver nuestros productos:\n\n1) A-Z\n2) Z-A\n3) Menor a mayor precio\n4) Mayor a menor precio\n\nUna vez que hayas elegido tu criterio de ordenación, nuestro catálogo se actualizará automáticamente para mostrar los productos de acuerdo a tu elección. ¡Disfruta navegando por nuestra selección!");
+
+  if (criterio === "1" || criterio === "2" || criterio === "3" || criterio === "4") {
+    break;
+  } else {
+    alert("La opción elegida no es válida. Por favor, selecciona una opción del 1 al 4.");
+  }
+}
 
 function ordenar(criterio, array) {
-
   let arrayOrdenado = array.slice(0);
 
   switch (criterio) {
@@ -124,9 +133,6 @@ function ordenar(criterio, array) {
       return arrayOrdenado.sort((a, b) => a.precio - b.precio);
     case "4":
       return arrayOrdenado.sort((a, b) => b.precio - a.precio);
-    default:
-      alert("La opción elegida no es válida. Por favor, selecciona una opción del 1 al 4.");
-      break;
   }
 }
 

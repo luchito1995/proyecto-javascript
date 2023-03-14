@@ -59,8 +59,12 @@ let nombreUsuario = prompt("Queremos conocer a nuestros clientes, ¿cuál es tu 
 
 
 // Verificar si el nombre ingresado tiene una sola palabra
-while (nombreUsuario.trim().split(' ').length !== 1) {
-  alert("Lo siento, sólo se permiten nombres de una sola palabra.");
+while (nombreUsuario.trim().split(' ').length !== 1 || nombreUsuario.trim().length === 0) {
+  if (nombreUsuario.trim().length === 0) {
+    alert("Lo siento, debes ingresar un nombre.");
+  } else {
+    alert("Lo siento, sólo se permiten nombres de una sola palabra.");
+  }
   nombreUsuario = prompt("Por favor, ingresa tu nombre en una sola palabra:");
 }
 

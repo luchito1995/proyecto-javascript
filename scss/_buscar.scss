@@ -1,0 +1,101 @@
+//Imagen de Frozono en el fondo
+.imagenPortada {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(	#000033,transparent,transparent,#000033), url(../imagenes/veamos2.jpg);
+}
+
+//Caja blur para el diálogo
+.caja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    box-sizing: border-box;
+    width: 24%;
+    height: 35%;
+    z-index: 0;
+}
+
+.colorCaja {
+    background-color: #ffffff10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.arrowblue {
+    position: relative;
+    top: 4.6em;
+    left: 7em;
+    max-width: auto;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+//Diálogo
+.animacion1 {
+    font-family: 'Carter One', cursive;
+    color: #001D3D;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0em;
+    top: 12.5em;
+    transition: transform 0.5s ease-in-out;
+}
+
+.animacion1.translate {
+    transform: translateX(25em);
+}
+
+.animacion2 {
+    font-family: 'Carter One', cursive;
+    color: #001D3D;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0em;
+    top: 14.5em;
+    transition: transform 0.5s ease-out;
+}
+
+.animacion2.translate {
+    transform: translateX(-25em);
+}
+
+.animacion3 {
+    font-family: 'Carter One', cursive;
+    color: #001D3D;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0em;
+    top: 16.5em;
+    transition: transform 0.5s ease-out;
+}
+
+.animacion3.translate {
+    transform: translateX(24em);
+}
+
+.animacion4 {
+    font-family: 'Carter One', cursive;
+    color: #001D3D;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0em;
+    top: 18.5em;
+    transition: transform 0.5s ease-out;
+}
+
+.animacion4.translate {
+    transform: translateX(-25.5em);
+}

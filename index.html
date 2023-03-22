@@ -8,20 +8,104 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/estilos.css">
 
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
     <!--CSS-->
-    <link rel="stylesheet" href="./estilos/estilos.css">
+    <link rel="stylesheet" href="./css/estilos.css">
 
     <!--JS-->
     <script defer src="./js/index.js"></script>
 
 </head>
 
-
-<header>
-</header>
-
-
 <body>
+
+    <!--COMIENZO DEL HEADER-->
+    <header>
+        <nav class="nav">
+
+            <div class="titulo">
+                <h1 class="primero">S Ú P E R</h1>
+                <h1 class="segundo">T R</h1>
+                <img class="imagenDino" loading="lazy" src="./imagenes/Perfecto3.png" alt="Imagen de dinosaurio">
+                <h1 class="tercero">J E S</h1>
+            </div>
+
+
+
+            <div class="lista">
+                <ul class="menu">
+                    <li class="menuItem">
+                        <a href="index.html" class="menuLink">Inicio</a>
+                        <img class="lock" loading="lazy" src="./imagenes/casita2.png" alt="Candado">
+                    </li>
+
+                    <li class="menuItem">
+                        <a href="./paginas/buscar.html" class="menuLink">Buscar</a>
+                        <img class="lock" loading="lazy" src="./imagenes/searcheando.png" alt="Candado">
+                    </li>
+
+                    <li class="menuItem">
+                        <a href="./paginas/carrito.html" class="menuLink">Carrito</a>
+                        <img class="lock" loading="lazy" src="./imagenes/carritosuper.png" alt="Candado">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="usuario">
+                <img class="imagenUsuario" loading="lazy" src="./imagenes/user-yellow.png" alt="Usuario">
+            </div>
+
+        </nav>
+    </header>
+    <!--FIN DEL HEADER-->
+
+    <!--COMIENZO DEL CARRUSEL-->
+    <div>
+
+        <!--Imágenes-->
+        <ul class="carrusel">
+            <li id="imagen1">
+                <img src="./imagenes/1.jpg" alt="Imagen 1">
+            </li>
+
+            <li id="imagen2">
+                <img src="./imagenes/2.jpg" alt="Imagen 1">
+            </li>
+
+            <li id="imagen3">
+                <img src="./imagenes/3.jpg" alt="Imagen 1">
+            </li>
+        </ul>
+
+        <!--Indicadores de posición-->
+        <ul class="indicadores">
+            <li class="indicador1">
+                <a href="#imagen1">
+                    <img src="./imagenes/indicador.png" alt="">
+                </a>
+            </li>
+
+            <li class="indicador2">
+                <a href="#imagen2">
+                    <img src="./imagenes/indicador.png" alt="">
+                </a>
+            </li>
+
+            <li class="indicador 3">
+                <a href="#imagen3">
+                    <img src="./imagenes/indicador.png" alt="">
+                </a>
+            </li>
+        </ul>
+
+
+    </div>
+    <!--FIN DEL CARRUSEL-->
+
 </body>
 
 </html>

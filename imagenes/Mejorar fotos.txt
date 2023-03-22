@@ -1,0 +1,16 @@
+Mejorar calidad de fotos en photoshop:
+
+1) Ir a la pestaña imagen, y luego a tamaño de imagen. Va a aparecer una miniventana: 
+. Poner 300 en la resolución
+. Poner conservar detalles (ampliación) en donde dice remuestrear
+. Poner en 100% en donde dice reducir ruido.
+. Clickeamos ok
+
+2) Ir a la pestaña filtro, buscar ruido y aparece un submenú, clickear en reducir ruido. Va a aparecer una miniventana:
+. Poner 10 en intensidad
+. Poner 2% en conservar detalles
+. Clickeamos ok
+
+3) Ir a la pestaña imagen, buscar ajustes y aparece un submenú, clickear en brillo/contraste. Va a aparecer una miniventana:
+. Subimos a 20 el contraste
+. Clickeamos ok

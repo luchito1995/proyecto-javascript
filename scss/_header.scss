@@ -1,0 +1,134 @@
+.nav {
+    background-color: transparent;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin: 0em;
+}
+
+/*Divs titulo, pestañas y png de usuario*/
+.titulo {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    margin: 0em;
+    padding: 0em;
+}
+
+.lista {
+    z-index: 1;
+    position: absolute;
+    top: 3rem;
+    right: 9rem;
+    cursor: pointer;
+}
+
+.usuario {
+    z-index: 1;
+    position: absolute;
+    top: 3rem;
+    right: 5rem;
+    cursor: pointer;
+}
+
+/*Titulo*/
+.imagenDino {
+    position: absolute;
+    margin-top: 0.6em;
+    padding: 0;
+    max-width: auto;
+    height: 3.3em;
+}
+
+.primero {
+    display: inline;
+    text-align: left;
+    font-family: 'Carter One', cursive;
+    color: #ffd60a;
+    font-size: 3rem;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    margin-right: 0em;
+    margin-left: 1.5em;
+}
+
+.segundo {
+    display: inline;
+    text-align: left;
+    font-family: 'Carter One', cursive;
+    color: #ffd60a;
+    font-size: 3rem;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    margin-right: 0em;
+    margin-left: 0.14em;
+}
+
+.tercero {
+    display: inline;
+    text-align: left;
+    font-family: 'Carter One', cursive;
+    color: #ffd60a;
+    font-size: 3rem;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    margin-right: 0em;
+    margin-left: 1.25em;
+}
+
+/*Pestañas*/
+.menu {
+    /*nav ul*/
+    list-style: none;
+    margin: 0em;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.menuItem {
+    /*nav ul li*/
+    font-family: 'Carter One', cursive;
+    font-size: 1.25rem;
+    padding: 0em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.menuLink {
+    /*nav ul li a*/
+    color: #ffd60a;
+    text-decoration: none;
+}
+
+.arrow {
+    max-width: auto;
+    height: 0.5em;
+}
+
+.lock {
+    max-width: auto;
+    height: 0.75em;
+}
+
+/*--Imagen de usuario--*/
+.imagenUsuario {
+    max-width: auto;
+    height: 2em;
+}

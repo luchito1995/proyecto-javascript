@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Súper trajes</title>
     <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./imagenes/asa2.jpg">
 
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +50,7 @@
                     </li>
 
                     <li class="menuItem">
-                        <a href="./paginas/carrito.html" class="menuLink">Carrito</a>
+                        <a href="" class="menuLink">Carrito</a>
                         <img class="lock" loading="lazy" src="./imagenes/carritosuper.png" alt="Candado">
                     </li>
                 </ul>
@@ -64,47 +65,88 @@
     <!--FIN DEL HEADER-->
 
     <!--COMIENZO DEL CARRUSEL-->
-    <div>
+    <div id="carrusel">
 
         <!--Imágenes-->
-        <ul class="carrusel">
+        <ul class="imagenes">
             <li id="imagen1">
-                <img src="./imagenes/1.jpg" alt="Imagen 1">
+                <img class="imagenUsuario" loading="lazy" src="./imagenes/1.jpeg" alt="Usuario">
             </li>
-
             <li id="imagen2">
-                <img src="./imagenes/2.jpg" alt="Imagen 1">
+                <img class="imagenUsuario" loading="lazy" src="./imagenes/8.jpeg" alt="Usuario">
             </li>
-
             <li id="imagen3">
-                <img src="./imagenes/3.jpg" alt="Imagen 1">
+                <img class="imagenUsuario" loading="lazy" src="./imagenes/5.jpeg" alt="Usuario">
             </li>
         </ul>
+
 
         <!--Indicadores de posición-->
         <ul class="indicadores">
-            <li class="indicador1">
+            <li id="indicador1">
                 <a href="#imagen1">
-                    <img src="./imagenes/indicador.png" alt="">
+                    <img class="imagenUsuario" loading="lazy" src="./imagenes/indicador.png" alt="Usuario">
                 </a>
             </li>
-
-            <li class="indicador2">
+            <li id="indicador2">
                 <a href="#imagen2">
-                    <img src="./imagenes/indicador.png" alt="">
+                    <img class="imagenUsuario" loading="lazy" src="./imagenes/indicador.png" alt="Usuario">
                 </a>
             </li>
-
-            <li class="indicador 3">
+            <li id="indicador3">
                 <a href="#imagen3">
-                    <img src="./imagenes/indicador.png" alt="">
+                    <img class="imagenUsuario" loading="lazy" src="./imagenes/indicador.png" alt="Usuario">
                 </a>
             </li>
         </ul>
 
+    </div>
+
+    <!--FIN DEL CARRUSEL-->
+
+    <!--COMIENZO DE LISTA DE PRODUCTOS-->
+
+    <div class="seccionProductos">
+        <div class="productos">
+            <div>
+                <img src="./imagenes/A.jpeg" alt="">
+            </div>
+            <div class="footer1">
+                <p class="hola"></p>
+            </div>
+            <div class="footer2">
+                <p class="hola2"></p>
+            </div>
+        </div>
+
+        <div class="productos">
+            <div>
+                <img src="./imagenes/AA.jpeg" alt="">
+            </div>
+            <div class="footer1">
+                <p class="hola"></p>
+            </div>
+            <div class="footer2">
+                <p class="hola2"></p>
+            </div>
+        </div>
+
+        <div class="productos">
+            <div>
+                <img src="./imagenes/AAA.jpeg" alt="">
+            </div>
+            <div class="footer1">
+                <p class="hola"></p>
+            </div>
+            <div class="footer2">
+                <p class="hola2"></p>
+            </div>
+        </div>
+
 
     </div>
-    <!--FIN DEL CARRUSEL-->
+
+    <!--FIN DE LISTA DE PRODUCTOS-->
 
 </body>
 

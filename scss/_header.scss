@@ -1,7 +1,5 @@
 .nav {
     background-color: transparent;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
     padding-left: 0em;
     padding-right: 0em;
     margin: 0em;
@@ -9,15 +7,16 @@
 
 /*Divs titulo, pestañas y png de usuario*/
 .titulo {
-    z-index: 1;
-    position: relative;
+    z-index: 2;
+    position: absolute;
     display: inline-block;
     margin: 0em;
     padding: 0em;
+    padding-top: 1.5em;
 }
 
 .lista {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 3rem;
     right: 9rem;
@@ -25,7 +24,7 @@
 }
 
 .usuario {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 3rem;
     right: 5rem;

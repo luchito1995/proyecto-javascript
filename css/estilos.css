@@ -7,33 +7,33 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 62, 5%; }
+  font-size: 62, 5%;
+  font-family: 'Carter One', cursive; }
 
 .nav {
   background-color: transparent;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
   padding-left: 0em;
   padding-right: 0em;
   margin: 0em; }
 
 /*Divs titulo, pestañas y png de usuario*/
 .titulo {
-  z-index: 1;
-  position: relative;
+  z-index: 2;
+  position: absolute;
   display: inline-block;
   margin: 0em;
-  padding: 0em; }
+  padding: 0em;
+  padding-top: 1.5em; }
 
 .lista {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 3rem;
   right: 9rem;
   cursor: pointer; }
 
 .usuario {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 3rem;
   right: 5rem;
@@ -130,52 +130,98 @@ html {
   max-width: auto;
   height: 2em; }
 
-.carrusel {
-  position: absolute;
+/******************************************CARRUSEL******************************************/
+#carrusel {
+  position: relative;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  overflow: hidden;
-  background-image: linear-gradient(#000033, transparent, transparent, #000033); }
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  overflow: hidden; }
 
-.carrusel img {
+#carrusel::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#000033, transparent, transparent, #000033);
+  background-size: cover;
+  z-index: -1; }
+
+#carrusel > ul.imagenes {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; }
+
+#carrusel > ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+#carrusel > ul.imagenes li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: inherit;
+  height: inherit;
+  transition: opacity .5s;
+  z-index: -1; }
+
+#carrusel > ul.imagenes li img {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: -1; }
 
-.carrusel li:nth-child(2),
-.carrusel li:nth-child(3) {
-  opacity: 0; }
-
-.carrusel li:target {
+#carrusel > ul.imagenes li:first-child {
   opacity: 1; }
 
-.indicadores {
+#carrusel > ul.imagenes li:target {
+  opacity: 1; }
+
+#carrusel > .indicadores {
   list-style: none;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 90%;
-  left: 42%; }
+  left: 42%;
+  z-index: 2; }
 
-.indicadores img {
+#carrusel > .indicadores img {
   z-index: 2;
   max-width: auto;
   height: 0.8em;
   margin-left: 0.5em;
   margin-right: 0.5em; }
 
-.indicadores li:hover img {
+#carrusel > .indicadores li:hover img {
   transform: scale(1.3); }
 
+/******************************************PRODUCTOS******************************************/
+.seccionProductos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto; }
+
+.productos {
+  height: 40em;
+  width: 20em;
+  border: .1em solid #ffd60a; }
+
 .imagenPortada {
-  position: absolute;
+  position: relative;
   z-index: 0;
   top: 0;
   left: 0;

@@ -1,11 +1,23 @@
-/* Reseteo de CSS */
+//Reseteo de CSS
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+//No es necesario poner la fuente de letra en ningún otro lado porque ya lo puse acá
 html {
     font-size: 62, 5%;
     font-family: 'Carter One', cursive;
+}
+
+//Con esto personalizo el scrollbar
+body::-webkit-scrollbar {
+    background-color: #000814;
+    width: 0.6em;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ffd60a;
+    border-radius: 0.2em;
 }

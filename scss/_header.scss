@@ -1,8 +1,10 @@
 .nav {
-    background-color: transparent;
     padding-left: 0em;
     padding-right: 0em;
     margin: 0em;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+    z-index: 2;
 }
 
 /*Divs titulo, pestañas y png de usuario*/
@@ -35,6 +37,7 @@
 .imagenDino {
     position: absolute;
     margin-top: 0.6em;
+    margin-left: -0.65em;
     padding: 0;
     max-width: auto;
     height: 3.3em;
@@ -43,9 +46,9 @@
 .primero {
     display: inline;
     text-align: left;
-    font-family: 'Carter One', cursive;
     color: #ffd60a;
     font-size: 3rem;
+    letter-spacing: 0.22em;
     padding-top: 0em;
     padding-bottom: 0em;
     padding-left: 0em;
@@ -59,9 +62,9 @@
 .segundo {
     display: inline;
     text-align: left;
-    font-family: 'Carter One', cursive;
     color: #ffd60a;
     font-size: 3rem;
+    letter-spacing: 0.22em;
     padding-top: 0em;
     padding-bottom: 0em;
     padding-left: 0em;
@@ -69,23 +72,7 @@
     margin-top: 1em;
     margin-bottom: 0em;
     margin-right: 0em;
-    margin-left: 0.14em;
-}
-
-.tercero {
-    display: inline;
-    text-align: left;
-    font-family: 'Carter One', cursive;
-    color: #ffd60a;
-    font-size: 3rem;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    padding-left: 0em;
-    padding-right: 0em;
-    margin-top: 1em;
-    margin-bottom: 0em;
-    margin-right: 0em;
-    margin-left: 1.25em;
+    margin-left: 1em;
 }
 
 /*Pestañas*/
@@ -101,7 +88,6 @@
 
 .menuItem {
     /*nav ul li*/
-    font-family: 'Carter One', cursive;
     font-size: 1.25rem;
     padding: 0em;
     margin-top: 0em;

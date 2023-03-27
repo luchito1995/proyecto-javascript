@@ -1,5 +1,6 @@
 /******************************************CARRUSEL******************************************/
 //El overflow hidden sirve para ocultar las diapositivas que no se ven en el momento, y así no ocupan espacio
+//Tuve que poner width: 100% porque con 100vw generaba un scroll horizontal
 #carrusel {
     position: relative;
     top: 0;
@@ -96,16 +97,119 @@ li {
 }
 
 /******************************************PRODUCTOS******************************************/
+//El font-weight de esta letra en modo normal creo que es 1000, en este título lo reduzco a 400 o normal
+.tituloProductos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #ffd60a;
+    background-color: #000033;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+.tituloVerMas {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #ffd60a;
+    background-color: #000033;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
 .seccionProductos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: auto;
+    background-color: #000033;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-right: 5em;
+    padding-left: 5em;
 }
 
-.productos {
-    height: 40em;
+.card {
+    height: 25em;
     width: 20em;
-    border: .1em solid #ffd60a
+    margin-top: 4em;
+    border: 3px solid blueviolet;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.cardImagen {
+    height: 21em;
+    width: 14em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 3em;
+    margin-right: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardImagen img {
+    height: 80%;
+    object-fit: cover;
+}
+
+//Poniendo display:flex en el contenedor padre y luego flex:1 en los hijos, voy a dividir al padre en partes iguales
+.cardFooter {
+    height: 4em;
+    width: 20em;
+    background-image: linear-gradient(135deg, black, #000814, #001d3d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid blueviolet;
+    margin: 0;
+    padding: 0;
+}
+
+.item1,
+.item2,
+.item3 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.item1,
+.item3 {
+    cursor: pointer;
+}
+
+.item1:hover,
+.item3:hover {
+    background-color: blueviolet;
+    transition: 0.5s ease;
+}
+
+.cardFooterImagen {
+    height: 1.2em;
+    object-fit: cover;
 }

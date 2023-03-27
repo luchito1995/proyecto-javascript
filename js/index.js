@@ -158,8 +158,8 @@
 
 
 
-// //ENTREGA N°3
-// //Animación para la página buscar
+//ENTREGA N°3
+//Animación para la página buscar
 window.onload = function () {
     let elemento1 = document.querySelector('h2.animacion1');
     elemento1.classList.add('translate');
@@ -173,5 +173,3 @@ window.onload = function () {
     let elemento4 = document.querySelector('h2.animacion4');
     elemento4.classList.add('translate');
 };
-
-//Carrusel

@@ -9,6 +9,9 @@
 
 /*Divs titulo, pestañas y png de usuario*/
 .titulo {
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
     z-index: 2;
     position: absolute;
     display: inline-block;
@@ -72,6 +75,22 @@
     margin-top: 1em;
     margin-bottom: 0em;
     margin-right: 0em;
+    margin-left: -0.1em;
+}
+
+.tercero {
+    display: inline;
+    text-align: left;
+    color: #ffd60a;
+    font-size: 3rem;
+    letter-spacing: 0.22em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    margin-right: 0em;
     margin-left: 1em;
 }
 
@@ -88,6 +107,9 @@
 
 .menuItem {
     /*nav ul li*/
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
     font-size: 1.25rem;
     padding: 0em;
     margin-top: 0em;

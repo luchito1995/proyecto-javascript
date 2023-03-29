@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Súper trajes</title>
-    <link rel="stylesheet" href="./css/estilos.css">
     <link rel="shortcut icon" type="image/x-icon" href="./imagenes/asa2.jpg">
 
     <!--Google fonts-->
@@ -29,9 +28,10 @@
         <nav class="nav">
 
             <div class="titulo">
-                <h1 class="primero">SÚPERTR</h1>
+                <h1 class="primero">SÚPER</h1>
+                <h1 class="segundo">TR</h1>
                 <img class="imagenDino" loading="lazy" src="./imagenes/Perfecto3.png" alt="Imagen de dinosaurio">
-                <h1 class="segundo">JES</h1>
+                <h1 class="tercero">JES</h1>
             </div>
 
 
@@ -49,7 +49,7 @@
                     </li>
 
                     <li class="menuItem">
-                        <a href="" class="menuLink">Carrito</a>
+                        <a id="carrito" href="./paginas/carrito.html" class="menuLink">Carrito</a>
                         <img class="lock" loading="lazy" src="./imagenes/carritosuper.png" alt="Candado">
                     </li>
                 </ul>
@@ -105,8 +105,8 @@
 
     <!--COMIENZO DE LISTA DE PRODUCTOS-->
 
-    <h1 class="tituloProductos">¡Aquí puedes ver una muestra de nuestro catálogo de disfraces!</h1>
-    <div class="seccionProductos">
+    <h1 class="titulo-productos">¡Aquí puedes ver una muestra de nuestro catálogo de disfraces!</h1>
+    <div class="seccion-productos">
 
         <div class="card">
             <div class="cardImagen">
@@ -114,11 +114,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 500</div>
-                <div class="item3">
+                <div class="precio">$ 500</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -130,11 +130,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 2000</div>
-                <div class="item3">
+                <div class="precio">$ 2000</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -146,11 +146,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 1400</div>
-                <div class="item3">
+                <div class="precio">$ 1400</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -162,11 +162,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 600</div>
-                <div class="item3">
+                <div class="precio">$ 600</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -178,11 +178,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 800</div>
-                <div class="item3">
+                <div class="precio">$ 800</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -194,11 +194,11 @@
             </div>
 
             <div class="cardFooter">
-                <div class="item1">
+                <div class="verDetalles">
                     <img class="cardFooterImagen" src="./imagenes/detalles.png" alt="">
                 </div>
-                <div class="item2">$ 1200</div>
-                <div class="item3">
+                <div class="precio">$ 1200</div>
+                <div class="btn-comprar">
                     <img class="cardFooterImagen" src="./imagenes/carritosuper2.png" alt="">
                 </div>
             </div>
@@ -206,7 +206,9 @@
 
     </div>
 
-    <h1 class="tituloVerMas">Ver más</h1>
+    
+    <h1 class="tituloVerMas"><a href="./paginas/buscar.html">Ver más</a></h1>
+    
     
     <!--FIN DE LISTA DE PRODUCTOS-->
 

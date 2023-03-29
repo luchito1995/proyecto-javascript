@@ -173,3 +173,115 @@ window.onload = function () {
     let elemento4 = document.querySelector('h2.animacion4');
     elemento4.classList.add('translate');
 };
+
+//1)Listado de los productos que voy a vender en un array con objetos
+const disfraces = [
+    {
+        id: 1,
+        nombre: "Disfraz de berenjena",
+        categoria: "Alimentos",
+        precio: 500,
+        imagen: "../imagenes/a1.jpg"
+    },
+    {
+        id: 2,
+        nombre: "Disfraz de dictador norcoreano",
+        categoria: "Personajes",
+        precio: 2000,
+        imagen: "../imagenes/a2.jpg"
+    },
+    {
+        id: 3,
+        nombre: "Disfraz de politico estadounidense",
+        categoria: "Personajes",
+        precio: 1400,
+        imagen: "../imagenes/a3.jpg"
+    },
+    {
+        id: 4,
+        nombre: "Disfraz de koala",
+        categoria: "Animales",
+        precio: 600,
+        imagen: "../imagenes/a4.jpg"
+    },
+    {
+        id: 5,
+        nombre: "Disfraz montado a dinosaurio",
+        categoria: "Animales",
+        precio: 800,
+        imagen: "../imagenes/a5.jpg"
+    },
+    {
+        id: 6,
+        nombre: "Disfraz jet pack",
+        categoria: "Montado",
+        precio: 1200,
+        imagen: "../imagenes/a6.jpg"
+    }
+];
+
+//2)Variable carrito (que empieza con un array vacío), donde voy a guardar todos los disfraces que el usuario quiera comprar
+const carrito = [];
+
+//3) Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
+const seccionProductos = document.querySelector("#seccionProductos");
+const verCarrito = document.getElementById("carrito");
+
+
+//4) ForEach que voy a usar para agregar contenido al HTML. En este caso voy a agregar las cards a "buscar.html"
+const mostrarDisfraces = (disfraces => {
+    disfraces.forEach((disfraz) => {
+        const cardProducto = document.createElement("div");
+        cardProducto.className = "card";
+        cardProducto.innerHTML = `
+                <div class="cardImagen">
+                    <img src="${disfraz.imagen}" alt="">
+                </div>
+    
+                <div class="cardFooter">
+                    <div class="verDetalles">
+                        <img class="cardFooterImagen" src="../imagenes/detalles.png" alt="">
+                    </div>
+                    <div class="precio">$ ${disfraz.precio}</div>
+                    <div id="${disfraz.id}" class="btn-comprar">
+                        <img class="cardFooterImagen" src="../imagenes/carritosuper2.png" alt="">
+                    </div>
+                </div>
+        `;
+        seccionProductos.append(cardProducto)
+    })
+    const btnComprar = document.querySelectorAll(".btn-comprar");
+    btnComprar.forEach(el => {
+        el.addEventListener("click", (e) => {
+            agregarAlCarrito(e.target.id)
+        });
+    })
+})
+
+mostrarDisfraces(disfraces);
+
+//5) Función para agregar al carrito y parseo al id
+function agregarAlCarrito(id) {
+    let disfrazEncontrado = disfraces.find(disfraz => disfraz.id === parseInt(id));
+    carrito.push(disfrazEncontrado)
+    console.log(carrito);
+}
+
+//6) Evento para clickear en el carrito y que ocurra algo. Crear modal para el carrito
+verCarrito.addEventListener("click", () => {
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML = `
+    <h1 class="modal-header-title">Carrito</h1>
+    `;
+    modalContainer.append(modalHeader);
+
+    const modalButton = document.createElement("h1");
+    modalButton.innerText = "x";
+    modalButton.className = "modal-header-button"
+
+    modalHeader.append(modalButton)
+})
+
+//7) Almacenar el carrito de compras actualizado en el local storage
+localStorage.setItem('carrito', JSON.stringify(carrito));

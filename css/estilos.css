@@ -6,9 +6,23 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 62, 5%;
-  font-family: 'Carter One', cursive; }
+  font-size: 62, 5%; }
 
+/*
+@font-face {
+    font-family: 'Renogare';
+    src: url("../Renogare.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+*/
+/*
+html {
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
+}
+*/
 body::-webkit-scrollbar {
   background-color: #000814;
   width: 0.6em; }
@@ -27,6 +41,9 @@ body::-webkit-scrollbar-thumb {
 
 /*Divs titulo, pestañas y png de usuario*/
 .titulo {
+  font-family: 'Carter One', cursive;
+  font-style: normal;
+  font-weight: normal;
   z-index: 2;
   position: absolute;
   display: inline-block;
@@ -85,6 +102,21 @@ body::-webkit-scrollbar-thumb {
   margin-top: 1em;
   margin-bottom: 0em;
   margin-right: 0em;
+  margin-left: -0.1em; }
+
+.tercero {
+  display: inline;
+  text-align: left;
+  color: #ffd60a;
+  font-size: 3rem;
+  letter-spacing: 0.22em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
+  margin-top: 1em;
+  margin-bottom: 0em;
+  margin-right: 0em;
   margin-left: 1em; }
 
 /*Pestañas*/
@@ -99,6 +131,9 @@ body::-webkit-scrollbar-thumb {
 
 .menuItem {
   /*nav ul li*/
+  font-family: 'Carter One', cursive;
+  font-style: normal;
+  font-weight: normal;
   font-size: 1.25rem;
   padding: 0em;
   margin-top: 0em;
@@ -202,12 +237,15 @@ li {
   transform: scale(1.3); }
 
 /******************************************PRODUCTOS******************************************/
-.tituloProductos {
+.titulo-productos {
+  font-family: 'Carter One', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
   font-weight: normal;
   color: #ffd60a;
   background-color: #000033;
@@ -217,11 +255,14 @@ li {
   padding-right: 0em; }
 
 .tituloVerMas {
+  font-family: 'Carter One', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
   font-weight: normal;
   color: #ffd60a;
   background-color: #000033;
@@ -230,7 +271,7 @@ li {
   padding-left: 0em;
   padding-right: 0em; }
 
-.seccionProductos {
+.seccion-productos {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -245,15 +286,15 @@ li {
   height: 25em;
   width: 20em;
   margin-top: 4em;
-  border: 3px solid blueviolet;
+  border: 3px solid #26428B;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px; }
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em; }
 
 .cardImagen {
   height: 21em;
@@ -273,17 +314,18 @@ li {
 .cardFooter {
   height: 4em;
   width: 20em;
-  background-image: linear-gradient(135deg, black, #000814, #001d3d);
+  background-color: #000814;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 3px solid blueviolet;
+  border-top: 3px solid #26428B;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-weight: 400; }
 
-.item1,
-.item2,
-.item3 {
+.verDetalles,
+.precio,
+.btn-comprar {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -293,13 +335,16 @@ li {
   padding: 0;
   height: 100%; }
 
-.item1,
-.item3 {
+.precio {
+  font-size: 1.2em; }
+
+.verDetalles,
+.btn-comprar {
   cursor: pointer; }
 
-.item1:hover,
-.item3:hover {
-  background-color: blueviolet;
+.verDetalles:hover,
+.btn-comprar:hover {
+  background-color: #26428B;
   transition: 0.5s ease; }
 
 .cardFooterImagen {
@@ -311,7 +356,7 @@ li {
   z-index: 0;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -344,6 +389,12 @@ li {
   max-width: auto;
   height: 1.5em;
   cursor: pointer; }
+
+.animacion1,
+.animacion2,
+.animacion3,
+.animacion4 {
+  font-family: 'Carter One', cursive; }
 
 .animacion1 {
   color: #001D3D;

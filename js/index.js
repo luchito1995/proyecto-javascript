@@ -217,6 +217,27 @@ const disfraces = [
         categoria: "Montado",
         precio: 1200,
         imagen: "../imagenes/a6.jpg"
+    },
+    {
+        id: 7,
+        nombre: "Disfraz león",
+        categoria: "Animal",
+        precio: 1350,
+        imagen: "../imagenes/a7.jpg"
+    },
+    {
+        id: 8,
+        nombre: "Disfraz tonto y retonto",
+        categoria: "Personajes",
+        precio: 2300,
+        imagen: "../imagenes/a8.jpg"
+    },
+    {
+        id: 9,
+        nombre: "Disfraz oktoberfest",
+        categoria: "Celebraciones",
+        precio: 1750,
+        imagen: "../imagenes/a9.jpg"
     }
 ];
 
@@ -226,6 +247,7 @@ const carrito = [];
 //3) Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
 const seccionProductos = document.querySelector("#seccionProductos");
 const verCarrito = document.getElementById("carrito");
+const modalContainer = document.getElementById("modal-container");
 
 
 //4) ForEach que voy a usar para agregar contenido al HTML. En este caso voy a agregar las cards a "buscar.html"
@@ -248,6 +270,7 @@ const mostrarDisfraces = (disfraces => {
                     </div>
                 </div>
         `;
+        //A la sección de productos vamos a añadirle las cards
         seccionProductos.append(cardProducto)
     })
     const btnComprar = document.querySelectorAll(".btn-comprar");
@@ -274,14 +297,46 @@ verCarrito.addEventListener("click", () => {
     modalHeader.innerHTML = `
     <h1 class="modal-header-title">Carrito</h1>
     `;
+
+    //Al container del modal vamos a agregarle el header
     modalContainer.append(modalHeader);
 
-    const modalButton = document.createElement("h1");
-    modalButton.innerText = "x";
-    modalButton.className = "modal-header-button"
+    const modalbutton = document.createElement("h1");
+    modalbutton.innerText = "x";
+    modalbutton.className = "modal-header-button";
 
-    modalHeader.append(modalButton)
-})
+    //Al header del modal vamos a agregarle el botón
+    modalHeader.append(modalbutton);
+
+    //Tenemos que recorrer el carrito con un forEach
+    carrito.forEach((disfraz) => {
+        let carritoContent = document.createElement("div")
+        carritoContent.className = "modal-content"
+        carritoContent.innerHTML = `
+        <img src="${disfraz.imagen}">
+        <h3>${disfraz.nombre}</h3>
+        <p>$ ${disfraz.precio}</p>
+        `;
+
+        //Al container del modal, al espacio del modal, le agregamos el contenido del carrito
+        modalContainer.append(carritoContent);
+    });
+
+    //Utilizar el método reduce para calcular el total del carrito
+    const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+
+    //Creo el footer de ese total del carrito
+    const totalComprar = document.createElement("div")
+    totalComprar.className = "total-content"
+    totalComprar.innerHTML = `
+    total a pagar: $ ${total}
+    `;
+
+    //Al container del modal, le agregamos el footer del carrito con el precio total
+    modalContainer.append(totalComprar);
+});
 
 //7) Almacenar el carrito de compras actualizado en el local storage
-localStorage.setItem('carrito', JSON.stringify(carrito));
+// localStorage.setItem('carrito', JSON.stringify(carrito));
+
+//ME FALTA AGREGARLE CSS AL CARRITO. LA PÁGINA "BUSCAR.HTML" ES LA QUE FUNCIONA, EL CARRITO APARECE ABAJO DE TODO CUANDO CLICKEAMOS EN CARRITO

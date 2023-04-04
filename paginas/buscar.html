@@ -17,16 +17,24 @@
     <link rel="stylesheet" href="../css/estilos.css">
 
     <!--JS-->
-    <script defer src="../js/index.js"></script>
+    <script defer src="../js/buscar.js"></script>
+    <script defer src="../js/card.js"></script>
+    <script defer src="../js/carrito.js"></script>
+
 
 </head>
 
 <body>
 
+
+
+
+
     <!--COMIENZO DEL HEADER-->
     <header>
         <nav class="nav">
 
+            <!--Tengo que dividir los h1 en 3 clases porque sino Google translate me los deforma-->
             <div class="titulo">
                 <h1 class="primero">SÚPER</h1>
                 <h1 class="segundo">TR</h1>
@@ -34,28 +42,25 @@
                 <h1 class="tercero">JES</h1>
             </div>
 
+            <ul class="menu">
+                <li class="menuItem">
+                    <a href="../index.html" class="menuLink">Inicio</a>
+                    <img class="lock" loading="lazy" src="../imagenes/casita2.png" alt="Lupa">
+                </li>
 
+                <li class="menuItem">
+                    <a href="buscar.html" class="menuLink">Buscar</a>
+                    <img class="lock" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
+                </li>
 
-            <div class="lista">
-                <ul class="menu">
-                    <li class="menuItem">
-                        <a href="../index.html" class="menuLink">Inicio</a>
-                        <img class="lock" loading="lazy" src="../imagenes/casita2.png" alt="Lupa">
-                    </li>
+                <li class="menuItem">
+                    <div id="carrito" class="menuLink">Carrito
+                        <div class="carrito1"></div>
+                        <div class="carrito2"></div>
+                    </div>
 
-                    <li class="menuItem">
-                        <a href="buscar.html" class="menuLink">Buscar</a>
-                        <img class="lock" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
-                    </li>
-
-                    <li class="menuItem">
-                        <div id="carrito" class="menuLink">Carrito
-                            <img class="lock" loading="lazy" src="../imagenes/carritosuper.png" alt="Candado">
-                        </div>
-                        
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
 
             <div class="usuario">
                 <img class="imagenUsuario" loading="lazy" src="../imagenes/user-yellow.png" alt="Usuario">
@@ -66,35 +71,48 @@
     <!--FIN DEL HEADER-->
 
 
-    <!--Imagen inicial-->
-    <div class="imagenPortada"></div>
 
-    <!--Animación-->
-    <div class="caja colorCaja">
-        <a href="#buscador">
-            <img class="arrowblue" loading="lazy" src="../imagenes/down-arrow-blue.png" alt="Candado">
-        </a>
+
+
+    <!--COMIENZO DE LA IMAGEN DE PORTADA-->
+    <div class="imagenPortada">
+
+        <div class="caja colorCaja">
+            <a href="#buscador">
+                <img class="arrowblue" loading="lazy" src="../imagenes/down-arrow-blue.png" alt="Candado">
+            </a>
+
+            <h2 class="animacion1">¿Dónde...</h2>
+            <h2 class="animacion2">está...</h2>
+            <h2 class="animacion3">mí...</h2>
+            <h2 class="animacion4">súper traje?</h2>
+        </div>
+
     </div>
+    <!--FIN DE LA IMAGEN DE PORTADA-->
 
-    <h2 class="animacion1">¿Dónde...</h2>
-    <h2 class="animacion2">está...</h2>
-    <h2 class="animacion3">mi...</h2>
-    <h2 class="animacion4">súper traje?</h2>
+
+
+
 
     <!--COMIENZO DE LISTA DE PRODUCTOS-->
-
-    <h1 class="titulo-productos">(Poner el buscador acá)</h1>
-    <div id="seccionProductos" class="seccion-productos">
-        <!--Acá inserté las cards mediante Javascript-->
+    <h1 class="tituloProductos">(Poner el buscador acá)</h1>
+    <div id="seccion-productos" class="seccionProductos">
+        <!--Acá inserto las cards mediante Javascript-->
     </div>
 
     <h1 class="tituloVerMas">Footer</h1>
-
     <!--FIN DE LISTA DE PRODUCTOS-->
 
-    <!--Acá inserto el modal para el carrito-->
-    <div id="modal-container" class="modal"></div>
 
+
+
+
+    <!--COMIENZO DEL MODAL-->
+    <div id="modal-container" class="modalContainer">
+        <!--Acá inserto el modal para el carrito-->
+    </div>
+    <!--FIN DEL MODAL-->
 
 
 

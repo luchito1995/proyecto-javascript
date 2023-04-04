@@ -1,104 +1,6 @@
-/******************************************CARRUSEL******************************************/
-//El overflow hidden sirve para ocultar las diapositivas que no se ven en el momento, y así no ocupan espacio
-//Tuve que poner width: 100% porque con 100vw generaba un scroll horizontal
-#carrusel {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    z-index: 1;
-    overflow: hidden;
-}
-
-//Aplico una capa de color al carrusel con esto
-#carrusel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(#000033, transparent, transparent, #000033);
-    background-size: cover;
-    z-index: -1;
-}
-
-//Esto afecta sólo a la primera ul
-#carrusel>ul.imagenes {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-}
-
-//Esto afecta a todas las li, de imágenes y de los indicadores
-#carrusel>ul,
-li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-//Esto afecta sólo a las li de la primera ul
-#carrusel>ul.imagenes li {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    width: inherit;
-    height: inherit;
-    transition: opacity .5s;
-    z-index: -1;
-}
-
-//Esto afecta sólo a las imágenes que están dentro de la primera ul
-#carrusel>ul.imagenes li img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-
-//Mostramos el primer <li>
-#carrusel>ul.imagenes li:first-child {
-    opacity: 1;
-}
-
-//Mostramos el <li> del enlace que pulsemos
-#carrusel>ul.imagenes li:target {
-    opacity: 1;
-}
-
-//INDICADORES
-#carrusel>.indicadores {
-    list-style: none;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 90%;
-    left: 42%;
-    z-index: 2;
-}
-
-#carrusel>.indicadores img {
-    z-index: 2;
-    max-width: auto;
-    height: 0.8em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-#carrusel>.indicadores li:hover img {
-    transform: scale(1.3);
-}
-
 /******************************************PRODUCTOS******************************************/
 //El font-weight de esta letra en modo normal creo que es 1000, en este título lo reduzco a 400 o normal
-.titulo-productos {
+.tituloProductos {
     font-family: 'Carter One', cursive;
     font-style: normal;
     font-weight: normal;
@@ -114,6 +16,7 @@ li {
     padding-bottom: 1em;
     padding-left: 0em;
     padding-right: 0em;
+    margin: 0;
 }
 
 .tituloVerMas {
@@ -134,7 +37,7 @@ li {
     padding-right: 0em;
 }
 
-.seccion-productos {
+.seccionProductos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -144,83 +47,4 @@ li {
     padding-bottom: 0em;
     padding-right: 5em;
     padding-left: 5em;
-}
-
-.card {
-    height: 25em;
-    width: 20em;
-    margin-top: 4em;
-    border: 3px solid #26428B;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-top-right-radius: 1em;
-    border-bottom-left-radius: 1em;
-}
-
-.cardImagen {
-    height: 21em;
-    width: 14em;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 3em;
-    margin-right: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cardImagen img {
-    height: 80%;
-    object-fit: cover;
-}
-
-//Poniendo display:flex en el contenedor padre y luego flex:1 en los hijos, voy a dividir al padre en partes iguales
-.cardFooter {
-    height: 4em;
-    width: 20em;
-    background-color: #000814;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 3px solid #26428B;
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-}
-
-.verDetalles,
-.precio,
-.btn-comprar {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-.precio {
-    font-size: 1.2em;
-}
-
-.verDetalles,
-.btn-comprar {
-    cursor: pointer;
-}
-
-.verDetalles:hover,
-.btn-comprar:hover {
-    background-color: #26428B;
-    transition: 0.5s ease;
-}
-
-.cardFooterImagen {
-    height: 1.2em;
-    object-fit: cover;
 }

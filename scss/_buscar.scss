@@ -6,16 +6,17 @@
     left: 0;
     width: 100%;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: linear-gradient(#000033, transparent, transparent, #000033), url('../imagenes/veamos2.jpg');
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(	#000033,transparent,transparent,#000033), url(../imagenes/veamos2.jpg);
+    background-repeat: no-repeat;
 }
 
 //Caja blur para el diálogo
 .caja {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 60%;
     left: 50%;
@@ -25,6 +26,8 @@
     width: 24%;
     height: 35%;
     z-index: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .colorCaja {
@@ -35,70 +38,91 @@
 }
 
 .arrowblue {
+    display: inline-block;
     position: relative;
-    top: 4.6em;
-    left: 7em;
-    max-width: auto;
+    top: 11em;
+    left: 17em;
+    width: 1.5em;
     height: 1.5em;
     cursor: pointer;
+
+    animation-name: opacidad;
+    animation-duration: 10s;
 }
 
-.animacion1,
-.animacion2,
-.animacion3, 
-.animacion4 {
-    font-family: 'Carter One', cursive;
+@keyframes opacidad {
+    from {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
+
 
 //Diálogo
 .animacion1 {
+    font-family: 'Carter One', cursive;
     color: #001D3D;
     font-size: 1.5rem;
-    position: absolute;
-    left: 0em;
-    top: 12.5em;
-    transition: transform 0.5s ease-in-out;
-}
-
-.animacion1.translate {
-    transform: translateX(25em);
+    position: relative;
+    left: -20em;
+    top: -0.25em;
 }
 
 .animacion2 {
+    font-family: 'Carter One', cursive;
     color: #001D3D;
     font-size: 1.5rem;
-    position: absolute;
-    right: 0em;
-    top: 14.5em;
-    transition: transform 0.5s ease-out;
-}
-
-.animacion2.translate {
-    transform: translateX(-25em);
+    position: relative;
+    left: 30em;
+    top: 0.25em;
 }
 
 .animacion3 {
+    font-family: 'Carter One', cursive;
     color: #001D3D;
     font-size: 1.5rem;
-    position: absolute;
-    left: 0em;
-    top: 16.5em;
-    transition: transform 0.5s ease-out;
-}
-
-.animacion3.translate {
-    transform: translateX(24em);
+    position: relative;
+    left: -20em;
+    top: 0.75em;
 }
 
 .animacion4 {
-    color: #001D3D;
+    font-family: 'Carter One', cursive;
     font-size: 1.5rem;
-    position: absolute;
-    right: 0em;
-    top: 18.5em;
-    transition: transform 0.5s ease-out;
+    color: #001D3D;
+    position: relative;
+    left: 27em;
+    top: 1.25em;
+}
+
+//Código para la opacidad y para el traslado que le doy desde Javascript
+.animacion1,
+.animacion2,
+.animacion3,
+.animacion4 {
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out;
+}
+
+.animacion1.translate {
+    transform: translateX(24em);
+    opacity: 1;
+}
+
+.animacion2.translate {
+    transform: translateX(-22em);
+    opacity: 1;
+}
+
+.animacion3.translate {
+    transform: translateX(22em);
+    opacity: 1;
 }
 
 .animacion4.translate {
-    transform: translateX(-25.5em);
+    transform: translateX(-23em);
+    opacity: 1;
 }

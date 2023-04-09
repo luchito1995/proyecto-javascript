@@ -45,19 +45,21 @@
             <ul class="menu">
                 <li class="menuItem">
                     <a href="index.html" class="menuLink">Inicio</a>
-                    <img class="lock" loading="lazy" src="./imagenes/casita2.png" alt="Candado">
+                    <img class="headerPng" loading="lazy" src="./imagenes/casita2.png" alt="Candado">
                 </li>
 
                 <li class="menuItem">
                     <a href="./paginas/buscar.html" class="menuLink">Buscar</a>
-                    <img class="lock" loading="lazy" src="./imagenes/searcheando.png" alt="Candado">
+                    <img class="headerPng" loading="lazy" src="./imagenes/searcheando.png" alt="Candado">
                 </li>
 
                 <li class="menuItem">
-                    <div id="carrito" class="menuLink">Carrito
-                        <div class="carrito1"></div>
-                        <div class="carrito2"></div>
-                    </div>
+                    <a href="#modal-id" style="text-decoration: none;">
+                        <div id="carrito" class="menuLink">Carrito
+                            <div class="carrito1"></div>
+                            <div class="carrito2"></div>
+                        </div>
+                    </a>
                 </li>
             </ul>
 
@@ -119,7 +121,7 @@
 
 
     <!--COMIENZO DEL MODAL-->
-    <div id="modal-container" class="modalContainer">
+    <div id="modal-id" class="modalClass">
         <!--Acá inserto el modal para el carrito-->
     </div>
     <!--FIN DEL MODAL-->
@@ -127,7 +129,47 @@
 
 
 
+
+    <!--COMIENZO DEL CARRUSEL DE VIDEOS-->
+    <div id="carrusel-videos">
+
+        <!--Videos-->
+        <ul class="videos">
+            <li id="video1">
+                <iframe src="https://www.youtube.com/embed/n5oM0c5tetA" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </li>
+            <li id="video2">
+                <iframe src="https://www.youtube.com/embed/WYzLwrmQ68Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </li>
+            <li id="video3">
+                <iframe src="https://www.youtube.com/embed/n5oM0c5tetA" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </li>
+        </ul>
+
+
+        <!--Indicadores de posición-->
+        <div class="flechas">
+            <img id="flecha-izquierda" class="flechaIzquierda" loading="lazy" src="./imagenes/flecha izquierda.png" alt="Usuario">
+            <img id="flecha-derecha" class="flechaDerecha" loading="lazy" src="./imagenes/flecha derecha.png" alt="Usuario">
+        </div>
+
+    </div>
+    <!--FIN DEL CARRUSEL DE VIDEOS-->
+
+
+
     
+
+    <!--COMIENZO DEL FOOTER-->
+    <h1 class="tituloVerMas">Footer</h1>
+    <!--FIN DEL FOOTER-->
+
+
+
 </body>
 
 </html>

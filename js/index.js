@@ -29,7 +29,7 @@ const disfraces = [
         nombre: "Disfraz koala",
         categoria: "Animales",
         precio: 600,
-        imagen: "./imagenes/a4.jpg",
+        imagen: "https://i.ibb.co/zxYh6xM/a4.jpg",
         cantidad: 1,
     },
     {
@@ -37,7 +37,7 @@ const disfraces = [
         nombre: "Disfraz montado a dino",
         categoria: "Animales",
         precio: 800,
-        imagen: "./imagenes/a5.jpg",
+        imagen: "https://i.ibb.co/hDbmJhc/a5.jpg",
         cantidad: 1,
     },
     {
@@ -45,7 +45,7 @@ const disfraces = [
         nombre: "Disfraz jet pack",
         categoria: "Montado",
         precio: 1200,
-        imagen: "./imagenes/a6.jpg",
+        imagen: "https://i.ibb.co/5rwXy3s/a6.jpg",
         cantidad: 1,
     },
 ];
@@ -81,6 +81,47 @@ indicadores.forEach((indicador, index) => {
         indicador.classList.add('activo');
     });
 });
+
+
+
+
+
+//Función para las flechas del carrusel de videos
+//Lo único que utilizo para hacer funcionar el carrusel de videos es cambiarle el z-index
+//El video actual tiene un z-index 1, mientras que el resto lo tiene en 0
+const carruselVideos = document.querySelector('#carrusel-videos');
+const flechaIzquierda = document.querySelector('#flecha-izquierda');
+const flechaDerecha = document.querySelector('#flecha-derecha');
+const videos = document.querySelectorAll('.videos li');
+
+let videoActual = 0;
+videos[videoActual].style.zIndex = '1';
+
+flechaIzquierda.addEventListener('click', () => {
+    videos[videoActual].style.zIndex = '0';
+    videoActual--;
+    if (videoActual < 0) {
+        videoActual = videos.length - 1;
+    }
+    videos[videoActual].style.zIndex = '1';
+});
+
+flechaDerecha.addEventListener('click', () => {
+    videos[videoActual].style.zIndex = '0';
+    videoActual++;
+    if (videoActual >= videos.length) {
+        videoActual = 0;
+    }
+    videos[videoActual].style.zIndex = '1';
+});
+
+
+
+
+
+
+
+
 
 
 

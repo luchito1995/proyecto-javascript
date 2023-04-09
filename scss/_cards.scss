@@ -107,8 +107,11 @@
     height: 1.25em;
 }
 
-//Ventajas de utilizar button en vez de div: 1)Buena etiqueta semántica 2)Al clickear mucho en div se pone azul, con button no pasa
 
+
+
+
+//Mensaje que aparece cuando clickeas en el botón de agregar al carrito
 .cartelAgregado {
     position: fixed;
     z-index: 3;
@@ -133,5 +136,3 @@
 .cartelAgregado.mostrarCartel {
     transform: translateY(-7.5em);
 }
-
-//Moverlo 7.5em para arriba

@@ -9,7 +9,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
 const verCarrito = document.getElementById("carrito");
-const modal = document.getElementById("modal-container");
+const modal = document.getElementById("modal-id");
 
 
 
@@ -20,75 +20,126 @@ const modal = document.getElementById("modal-container");
 const pintarCarrito = () => {
     //Estas 2 líneas sirven para abrir y cerrar el carrito sin problemas
     modal.innerHTML = "";
-    modal.style.display = "block";
+    modal.style.display = "flex";
+
+    const modalContainer = document.createElement("div");
+    modalContainer.className = "modalContainer";
+    modal.append(modalContainer);
 
     const modalHeader = document.createElement("div");
     modalHeader.className = "modalHeader";
     modalHeader.innerHTML = `
     <h1 class="modalHeaderTitle">Carrito</h1>
+    <img class="modalHeaderImagen" src="https://i.ibb.co/pRWmFgB/carritosuper.png" loading="lazy">
     `;
-    modal.append(modalHeader);
+    modalContainer.append(modalHeader);
 
-    const modalButton = document.createElement("h1");
+    const modalButton = document.createElement("button");
     modalButton.className = "modalHeaderButton";
-    modalButton.innerText = "x";
+    modalButton.innerText = "❌";
 
-    //Evento para que se cierre el modal
+    //Evento para que se cierre el modal y vuelva a aparecer el scroll del body
     modalButton.addEventListener("click", () => {
         modal.style.display = "none";
+        document.body.style.overflow = 'auto';
     })
 
     modalHeader.append(modalButton);
 
+    const modalContent = document.createElement("div");
+    modalContent.className = "modalContent";
+    modalContainer.append(modalContent);
+
     carrito.forEach((disfraz) => {
-        let modalContent = document.createElement("div");
-        modalContent.className = "modalContent";
-        modalContent.innerHTML = `
-            <img src="${disfraz.imagen}">
-            <h3>${disfraz.nombre}</h3>
-            <p>$ ${disfraz.precio}</p>
-            <button class="restar"> - </button>
-            <p>Cantidad: ${disfraz.cantidad}</p>
-            <button class="sumar"> + </button>
-            <p>Total: ${disfraz.cantidad * disfraz.precio}</p>
-            <button class="borrarProducto"> ❌ </button>
+        let modalProduct = document.createElement("div");
+        modalProduct.className = "modalProduct";
+        modalProduct.innerHTML = `
+            <div class="modalProductImagen">
+                <img src="${disfraz.imagen}">
+            </div>
+            <p class="modalProductNombre">${disfraz.nombre}</p>
+            <p class="modalProductPrecio">$ ${disfraz.precio}</p>
+            <div class="modalProductCantidad">
+                <button class="modalProductRestar"> - </button>
+                <p class="modalProductNumero">${disfraz.cantidad}</p>
+                <button class="modalProductSumar"> + </button>
+            </div>
+            <div class="modalProductTotal">
+                <p class="modalProductTotalPalabra">Total: </p>
+                <p class="modalProductTotalNumero">$ ${disfraz.cantidad * disfraz.precio}</p>
+            </div>
+            <button class="modalProductBorrar"> ❌ </button>
         `;
-        modal.append(modalContent);
+        modalContent.append(modalProduct);
 
 
-        let restar = modalContent.querySelector(".restar");
-        let sumar = modalContent.querySelector(".sumar");
-        let eliminar = modalContent.querySelector(".borrarProducto");
-        restar.addEventListener("click", () => {
+        let restar = modalProduct.querySelector(".modalProductRestar");
+        let sumar = modalProduct.querySelector(".modalProductSumar");
+        let eliminar = modalProduct.querySelector(".modalProductBorrar");
+
+        restar.addEventListener("click", (event) => {
             if (disfraz.cantidad !== 1) {
                 disfraz.cantidad--;
             }
             saveLocal();
             pintarCarrito();
         });
-        sumar.addEventListener("click", () => {
+
+        sumar.addEventListener("click", (event) => {
             disfraz.cantidad++;
             saveLocal();
             pintarCarrito();
         });
-        eliminar.addEventListener("click", () => {
+
+        eliminar.addEventListener("click", (event) => {
             eliminarProducto(disfraz.id);
-        })
+        });
+
+
     });
 
     //Función para calcular el total del carrito
     //El método reduce lleva 2 parámetros: "acc" que es el acumulador y "el" que es cada elemento de los productos
     //0 es el número con el que arranca el acumulador
-    //Esto lo utilizo en la línea 96
+    //Esto lo utilizo en la línea 110
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
     //Pongo el precio total para el modal
-    const precioTotal = document.createElement("div");
-    precioTotal.className = "total";
-    precioTotal.innerHTML = `
-    total a pagar: $ ${total}
+    const modalFooter = document.createElement("div");
+    modalFooter.className = "modalFooter";
+    modalFooter.innerHTML = `
+    <button class="vaciarCarrito">
+    <p>Vaciar carrito</p>
+    </button>
+    <div class="modalFooterTotal">
+        <p class="modalFooterTotalPalabra">Total a pagar:</p>
+        <p class="modalFooterTotalNumero">$ ${total}</p>
+    </div>
+    <button class="finalizarCompra">
+    <p>Finalizar compra</p>
+    <p class="compraCompletada">¡Gracias por elegir súper trajes! 😊</p>
+    </button>
     `;
-    modal.append(precioTotal);
+    modalContainer.append(modalFooter);
+
+    //Función para que el botón de finalizar compra limpie el storage y aparezca un cartel
+    let vaciarCarrito = document.querySelector(".vaciarCarrito")
+    let finalizarCompra = document.querySelector(".finalizarCompra");
+    let compraCompletada = document.querySelector(".compraCompletada");
+
+    vaciarCarrito.addEventListener('click', () => {
+        localStorage.clear();
+        eliminarTodosProductos();
+    });
+
+    finalizarCompra.addEventListener('click', () => {
+        localStorage.clear();
+        eliminarTodosProductos();
+        compraCompletada.classList.add("cartel");
+        setTimeout(() => {
+            compraCompletada.classList.remove("cartel");
+        }, 4000);
+    });
 };
 
 
@@ -96,13 +147,24 @@ const pintarCarrito = () => {
 
 
 //Cuando clickee en el carrito, va a ocurrir la función "pintarCarrito"
-verCarrito.addEventListener("click", pintarCarrito);
+//También va a ocurrir que se va a mostrar el modal, y va a desaparecer el scroll del body
+//Es decir estoy juntando las 2 cosas en esta función
+verCarrito.addEventListener('click', function () {
+    pintarCarrito();
+
+    // Mostrar el div del modal
+    modal.style.display = 'flex';
+
+    // Ocultar el scrollbar del body
+    document.body.style.overflow = 'hidden';
+});
 
 
 
 
 
-//Le doy función al "eliminar" creado en la línea 54
+
+//Le doy función al "eliminar" creado en la línea 94
 //La palabra element puede ser disfraz o cualquier cosa
 const eliminarProducto = (id) => {
     //Lo que el usuario quiere eliminar
@@ -113,6 +175,22 @@ const eliminarProducto = (id) => {
         return carritoId !== idEncontrado;
     });
 
+    // Actualiza la vista del carrito, contador y guarda en local
+    carritoContador();
+    saveLocal();
+    pintarCarrito();
+};
+
+
+
+
+
+//Eliminar todo el carrito
+const eliminarTodosProductos = () => {
+    // Vacía el carrito completamente
+    carrito = [];
+
+    // Actualiza la vista del carrito, contador y guarda en local
     carritoContador();
     saveLocal();
     pintarCarrito();
@@ -145,3 +223,10 @@ carritoContador();
 
 
 
+
+
+//Clase ".hidden" agregada con Javascript para que no aparezca el fondo del modal cuando refresque la página
+//No entendí muy bien este problema, lo resolví con chat gpt
+document.addEventListener("DOMContentLoaded", function () {
+    modal.classList.add("hidden");
+});

@@ -45,20 +45,21 @@
             <ul class="menu">
                 <li class="menuItem">
                     <a href="../index.html" class="menuLink">Inicio</a>
-                    <img class="lock" loading="lazy" src="../imagenes/casita2.png" alt="Lupa">
+                    <img class="headerPng" loading="lazy" src="../imagenes/casita2.png" alt="Lupa">
                 </li>
 
                 <li class="menuItem">
                     <a href="buscar.html" class="menuLink">Buscar</a>
-                    <img class="lock" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
+                    <img class="headerPng" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
                 </li>
 
                 <li class="menuItem">
-                    <div id="carrito" class="menuLink">Carrito
-                        <div class="carrito1"></div>
-                        <div class="carrito2"></div>
-                    </div>
-
+                    <a href="#modal-id" style="text-decoration: none;">
+                        <div id="carrito" class="menuLink">Carrito
+                            <div class="carrito1"></div>
+                            <div class="carrito2"></div>
+                        </div>
+                    </a>
                 </li>
             </ul>
 
@@ -95,6 +96,52 @@
 
 
 
+    <!--COMIENZO DEL BUSCADOR-->
+    <div id="buscador">
+        <label for="categoria">
+            <p>Categoría</p>
+            <select name="categoria">
+                <option value="Todo">Todo</option>
+                <option value="Animales">Animales</option>
+                <option value="Comida">Comida</option>
+                <option value="Festividades">Festividades</option>
+                <option value="Halloween">Halloween</option>
+                <option value="Montado">Montado</option>
+                <option value="Personajes">Personajes</option>
+            </select>
+        </label>
+
+        <label for="ordenar">
+            <p>Ordenar</p>
+            <select name="ordenar">
+                <option value="Todo">Todo</option>
+                <option value="A - Z">A - Z</option>
+                <option value="Z - A">Z - A</option>
+            </select>
+        </label>
+
+        <label for="precio">
+            <p>Precio</p>
+            <select name="precio">
+                <option value="Todo">Todo</option>
+                <option value="Menor a mayor">Menor a mayor</option>
+                <option value="Mayor a menor">Mayor a menor</option>
+            </select>
+        </label>
+
+        <label for="buscar">
+            <p>Buscar
+                <img class="lock" loading="lazy" src="" alt="Lupa">
+            </p>
+            <input type="text" name="buscar">
+        </label>
+    </div>
+    <!--FIN DEL BUSCADOR-->
+
+
+
+
+
     <!--COMIENZO DE LISTA DE PRODUCTOS-->
     <h1 class="tituloProductos">(Poner el buscador acá)</h1>
     <div id="seccion-productos" class="seccionProductos">
@@ -109,7 +156,7 @@
 
 
     <!--COMIENZO DEL MODAL-->
-    <div id="modal-container" class="modalContainer">
+    <div id="modal-id" class="modalClass">
         <!--Acá inserto el modal para el carrito-->
     </div>
     <!--FIN DEL MODAL-->

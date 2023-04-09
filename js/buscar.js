@@ -5,7 +5,7 @@ const disfraces = [
         nombre: "Disfraz berenjena",
         categoria: "Alimentos",
         precio: 500,
-        imagen: "../imagenes/a1.jpg",
+        imagen: "https://i.ibb.co/6FXLL3G/a1.jpg",
         cantidad: 1,
     },
     {
@@ -13,7 +13,7 @@ const disfraces = [
         nombre: "Disfraz Kim Jong-un",
         categoria: "Personajes",
         precio: 2000,
-        imagen: "../imagenes/a2.jpg",
+        imagen: "https://i.ibb.co/M8w0B7m/a2.jpg",
         cantidad: 1,
     },
     {
@@ -21,7 +21,7 @@ const disfraces = [
         nombre: "Disfraz Donald Trump",
         categoria: "Personajes",
         precio: 1400,
-        imagen: "../imagenes/a3.jpg",
+        imagen: "https://i.ibb.co/2sTsLdh/a3.jpg",
         cantidad: 1,
     },
     {
@@ -29,7 +29,7 @@ const disfraces = [
         nombre: "Disfraz koala",
         categoria: "Animales",
         precio: 600,
-        imagen: "../imagenes/a4.jpg",
+        imagen: "https://i.ibb.co/zxYh6xM/a4.jpg",
         cantidad: 1,
     },
     {
@@ -37,7 +37,7 @@ const disfraces = [
         nombre: "Disfraz montado a dino",
         categoria: "Animales",
         precio: 800,
-        imagen: "../imagenes/a5.jpg",
+        imagen: "https://i.ibb.co/hDbmJhc/a5.jpg",
         cantidad: 1,
     },
     {
@@ -45,7 +45,7 @@ const disfraces = [
         nombre: "Disfraz jet pack",
         categoria: "Montado",
         precio: 1200,
-        imagen: "../imagenes/a6.jpg",
+        imagen: "https://i.ibb.co/5rwXy3s/a6.jpg",
         cantidad: 1,
     },
     {
@@ -53,7 +53,7 @@ const disfraces = [
         nombre: "Disfraz león",
         categoria: "Animal",
         precio: 1350,
-        imagen: "../imagenes/a7.jpg",
+        imagen: "https://i.ibb.co/fq8jXyF/a7.jpg",
         cantidad: 1,
     },
     {
@@ -61,7 +61,7 @@ const disfraces = [
         nombre: "Disfraz tonto y retonto",
         categoria: "Personajes",
         precio: 2300,
-        imagen: "../imagenes/a8.jpg",
+        imagen: "https://i.ibb.co/JH9y306/a8.jpg",
         cantidad: 1,
     },
     {
@@ -69,7 +69,7 @@ const disfraces = [
         nombre: "Disfraz oktoberfest",
         categoria: "Festividades",
         precio: 1750,
-        imagen: "../imagenes/a9.jpg",
+        imagen: "https://i.ibb.co/RpLdh0G/a9.jpg",
         cantidad: 1,
     },
     {
@@ -77,7 +77,7 @@ const disfraces = [
         nombre: "Disfraz águila",
         categoria: "Animales",
         precio: 1500,
-        imagen: "../imagenes/a10.jpg",
+        imagen: "https://i.ibb.co/BrWPMPB/a10.jpg",
         cantidad: 1,
     },
     {
@@ -85,7 +85,7 @@ const disfraces = [
         nombre: "Disfraz palta",
         categoria: "Comida",
         precio: 900,
-        imagen: "../imagenes/a11.jpg",
+        imagen: "https://i.ibb.co/pZSNH08/a11.jpg",
         cantidad: 1,
     },
     {
@@ -93,7 +93,7 @@ const disfraces = [
         nombre: "Disfraz dino esqueleto",
         categoria: "Halloween",
         precio: 2050,
-        imagen: "../imagenes/a12.jpg",
+        imagen: "https://i.ibb.co/51ZSwJz/a12.jpg",
         cantidad: 1,
     },
     {
@@ -101,7 +101,7 @@ const disfraces = [
         nombre: "Disfraz hombre de nieve",
         categoria: "Festividades",
         precio: 1900,
-        imagen: "../imagenes/a13.jpg",
+        imagen: "https://i.ibb.co/XV3cwMW/a13.jpg",
         cantidad: 1,
     },
     {
@@ -109,7 +109,7 @@ const disfraces = [
         nombre: "Disfraz los increíbles",
         categoria: "Personajes",
         precio: 700,
-        imagen: "../imagenes/a14.jpg",
+        imagen: "https://i.ibb.co/wKPRW2y/a14.jpg",
         cantidad: 1,
     },
     {
@@ -117,7 +117,7 @@ const disfraces = [
         nombre: "Disfraz rapto de alien",
         categoria: "Halloween",
         precio: 1000,
-        imagen: "../imagenes/a15.jpg",
+        imagen: "https://i.ibb.co/1rNQsQx/a15.jpg",
         cantidad: 1,
     },
 ];

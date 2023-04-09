@@ -9,6 +9,17 @@ html {
     font-size: 62, 5%;
 }
 
+//Con esto personalizo el scrollbar
+body::-webkit-scrollbar {
+    background-color: #000814;
+    width: 0.6em;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ffd60a;
+    border-radius: 0.2em;
+}
+
 //Si quiero usar una fuente descargada utilizo @font-face, si quiero usar una fuente de google-fonts simplemente pego el link en el html y utilizo html {} en el scss
 /*
 @font-face {
@@ -24,16 +35,6 @@ html {
     font-family: 'Carter One', cursive;
     font-style: normal;
     font-weight: normal;
+    font-size: 1em;
 }
 */
-
-//Con esto personalizo el scrollbar
-body::-webkit-scrollbar {
-    background-color: #000814;
-    width: 0.6em;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #ffd60a;
-    border-radius: 0.2em;
-}

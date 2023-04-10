@@ -11,10 +11,10 @@
     background-color: #000033;
 }
 
-//Esto afecta sólo a la ul. Define la posición que van a tener los videos, con respecto a tamaño y margenes dentro del div
+//Esto afecta sólo al ul. Define la posición que van a tener los videos, con respecto a tamaño y margenes dentro del div
 #carrusel-videos>ul.videos {
     position: relative;
-    width: 55em;
+    width: 50em;
     height: 30em;
     margin-left: auto;
     margin-right: auto;
@@ -27,8 +27,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 50em;
+    height: 30em;
     z-index: 0;
     padding: 0;
     margin: 0;
@@ -37,9 +37,11 @@
 
 //Esto afecta sólo a los videos. Define el tamaño que van a tener los videos
 #carrusel-videos>ul.videos li iframe {
-    width: 100%;
-    height: 100%;
+    width: 50em;
+    height: 30em;
     z-index: 0;
+    object-fit: cover;
+    border: none;
 }
 
 //Mostramos el primer <li>
@@ -60,18 +62,23 @@
 }
 
 .flechaIzquierda {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     cursor: pointer;
     transition: all 0.5s ease;
     margin-left: 7.5em;
 }
 
 .flechaDerecha {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     cursor: pointer;
     transition: all 0.5s ease;
     margin-left: auto;
     margin-right: 7.5em;
+}
+
+.flechaIzquierda:hover,
+.flechaDerecha:hover {
+    transform: scale(1.5);
 }

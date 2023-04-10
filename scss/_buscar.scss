@@ -45,6 +45,7 @@
     width: 1.5em;
     height: 1.5em;
     cursor: pointer;
+    z-index: 1;
 
     animation-name: opacidad;
     animation-duration: 10s;
@@ -125,4 +126,92 @@
 .animacion4.translate {
     transform: translateX(-23em);
     opacity: 1;
+}
+
+//BUSCADOR
+#buscadorContainer {
+    width: 100%;
+    background-color: #000033;
+    padding-top: 8em;
+    //Le resto el padding-top de las cards
+    padding-bottom: 4em;
+}
+
+.buscador {
+    margin-left: 5em;
+    margin-right: 5em;
+    background-color: #26428B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.buscadorLabel {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0;
+}
+
+.buscadorLabel span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    padding: 0;
+    margin: 0;
+    background-color: #000033;
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: #ffd60a;
+    height: 50px;
+    border-top-right-radius: 0.5em;
+}
+
+.buscadorLupa {
+    margin-left: 0.25em;
+    height: 0.8em;
+    width: 0.8em;
+}
+
+//Tengo que eliminar los estilos por defecto de select e input, sino me causa problemas en el diseño
+//Tengo que poner el height con un valor definido sí o sí, sino no tienen las mismas alturas
+select,
+input {
+    margin: 0;
+    padding: 0;
+    border: 2px solid #000033;
+    background-color: white;
+    font-size: inherit;
+    font-family: inherit;
+    height: 50px;
+    border-bottom-left-radius: 0.5em;
+}
+
+.buscadorLabel select {
+    width: 12em;
+    text-align: center;
+    background-color: #26428B;
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: #ffd60a;
+}
+
+.buscadorLabel input {
+    width: 12em;
+    text-align: center;
+    background-color: #26428B;
+    overflow: hidden;
+    font-family: 'Carter One', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: #ffd60a;
 }

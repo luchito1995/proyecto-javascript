@@ -36,10 +36,10 @@
 
             <!--Tengo que dividir los h1 en 3 clases porque sino Google translate me los deforma-->
             <div class="titulo">
-                <h1 class="primero">SÚPER</h1>
-                <h1 class="segundo">TR</h1>
+                <h2 class="primero">SÚPER</h2>
+                <h2 class="segundo">TR</h2>
                 <img class="imagenDino" loading="lazy" src="../imagenes/Perfecto3.png" alt="Imagen de dinosaurio">
-                <h1 class="tercero">JES</h1>
+                <h2 class="tercero">JES</h2>
             </div>
 
             <ul class="menu">
@@ -79,7 +79,7 @@
     <div class="imagenPortada">
 
         <div class="caja colorCaja">
-            <a href="#buscador">
+            <a href="#buscadorContainer">
                 <img class="arrowblue" loading="lazy" src="../imagenes/down-arrow-blue.png" alt="Candado">
             </a>
 
@@ -97,44 +97,48 @@
 
 
     <!--COMIENZO DEL BUSCADOR-->
-    <div id="buscador">
-        <label for="categoria">
-            <p>Categoría</p>
-            <select name="categoria">
-                <option value="Todo">Todo</option>
-                <option value="Animales">Animales</option>
-                <option value="Comida">Comida</option>
-                <option value="Festividades">Festividades</option>
-                <option value="Halloween">Halloween</option>
-                <option value="Montado">Montado</option>
-                <option value="Personajes">Personajes</option>
-            </select>
-        </label>
+    <div id="buscadorContainer">
 
-        <label for="ordenar">
-            <p>Ordenar</p>
-            <select name="ordenar">
-                <option value="Todo">Todo</option>
-                <option value="A - Z">A - Z</option>
-                <option value="Z - A">Z - A</option>
-            </select>
-        </label>
+        <div id="buscador" class="buscador">
+            <label for="categoria" class="buscadorLabel">
+                <span>Categoria</span>
+                <select id="categoria">
+                    <option value="Todo">Todo</option>
+                    <option value="Animales">Animales</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Festividades">Festividades</option>
+                    <option value="Halloween">Halloween</option>
+                    <option value="Montado">Montado</option>
+                    <option value="Personajes">Personajes</option>
+                </select>
+            </label>
 
-        <label for="precio">
-            <p>Precio</p>
-            <select name="precio">
-                <option value="Todo">Todo</option>
-                <option value="Menor a mayor">Menor a mayor</option>
-                <option value="Mayor a menor">Mayor a menor</option>
-            </select>
-        </label>
+            <label for="ordenar" class="buscadorLabel">
+                <span>Ordenar</span>
+                <select id="ordenar">
+                    <option value="Todo">Todo</option>
+                    <option value="A - Z">A - Z</option>
+                    <option value="Z - A">Z - A</option>
+                </select>
+            </label>
 
-        <label for="buscar">
-            <p>Buscar
-                <img class="lock" loading="lazy" src="" alt="Lupa">
-            </p>
-            <input type="text" name="buscar">
-        </label>
+            <label for="precio" class="buscadorLabel">
+                <span>Precio</span>
+                <select id="precio">
+                    <option value="Todo">Todo</option>
+                    <option value="Menor a mayor">Menor a mayor</option>
+                    <option value="Mayor a menor">Mayor a menor</option>
+                </select>
+            </label>
+
+            <label for="buscar" class="buscadorLabel">
+                <span>Buscar
+                    <img class="buscadorLupa" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
+                </span>
+                <input type="text" id="buscar">
+            </label>
+        </div>
+
     </div>
     <!--FIN DEL BUSCADOR-->
 
@@ -143,7 +147,6 @@
 
 
     <!--COMIENZO DE LISTA DE PRODUCTOS-->
-    <h1 class="tituloProductos">(Poner el buscador acá)</h1>
     <div id="seccion-productos" class="seccionProductos">
         <!--Acá inserto las cards mediante Javascript-->
     </div>

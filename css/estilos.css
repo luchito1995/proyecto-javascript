@@ -29,7 +29,7 @@ html {
     font-family: 'Carter One', cursive;
     font-style: normal;
     font-weight: normal;
-    font-size: 1em;
+    font-size: 1.25rem;
 }
 */
 header {
@@ -141,8 +141,8 @@ nav {
   text-decoration: none; }
 
 .headerPng {
-  max-width: auto;
-  height: 0.75em; }
+  height: 0.8em;
+  width: 0.8em; }
 
 /*--Número para marcar la cantidad de disfraces que vas a comprar--*/
 /*--Si no compras nada, aparece el dibujo de un carrito--*/
@@ -151,8 +151,8 @@ nav {
   background-image: url("../imagenes/carritosuper.png");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 0.75em;
-  height: 0.75em; }
+  width: 0.8em;
+  height: 0.8em; }
 
 .carrito2 {
   display: none;
@@ -514,9 +514,9 @@ li {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.3em;
+  font-size: 1.25rem;
   color: #ffd60a;
-  height: 50px;
+  height: 2.5em;
   border-top-right-radius: 0.5em; }
 
 .buscadorLupa {
@@ -532,7 +532,7 @@ input {
   background-color: white;
   font-size: inherit;
   font-family: inherit;
-  height: 50px;
+  height: 2.5em;
   border-bottom-left-radius: 0.5em; }
 
 .buscadorLabel select {
@@ -542,7 +542,7 @@ input {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.3em;
+  font-size: 1.25rem;
   color: #ffd60a; }
 
 .buscadorLabel input {
@@ -553,7 +553,7 @@ input {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.3em;
+  font-size: 1.25rem;
   color: #ffd60a; }
 
 .card {
@@ -715,13 +715,13 @@ input {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 2em;
+  font-size: 1.75rem;
   color: #ffd60a; }
 
 .modalHeaderImagen {
   margin-left: 0.4em;
-  height: 1.5em;
-  width: 1.5em; }
+  height: 1.25em;
+  width: 1.25em; }
 
 .modalHeaderButton {
   font-size: 1.5em;
@@ -887,7 +887,7 @@ lo que sobre para llegar a 100vh de altura.
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2em;
+  font-size: 1.25rem;
   padding-top: 1em;
   padding-bottom: 1em;
   border-top-right-radius: 0.75em;
@@ -913,7 +913,7 @@ lo que sobre para llegar a 100vh de altura.
 .modalFooterTotalNumero {
   margin-left: 0.5em;
   font-weight: 1000;
-  font-size: 1.4em; }
+  font-size: 1.3rem; }
 
 .finalizarCompra {
   width: 30%;
@@ -922,7 +922,7 @@ lo que sobre para llegar a 100vh de altura.
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2em;
+  font-size: 1.25rem;
   padding-top: 1em;
   padding-bottom: 1em;
   border-top-right-radius: 0.75em;

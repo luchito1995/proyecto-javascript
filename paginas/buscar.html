@@ -46,18 +46,26 @@
 
             <ul class="menu">
                 <li class="menuItem">
-                    <a href="../index.html" class="menuLink">Inicio</a>
-                    <img class="headerPng" loading="lazy" src="../imagenes/casita2.png" alt="Lupa">
+                    <a href="../index.html" style="text-decoration: none;">
+                        <div class="menuLink">
+                            Inicio
+                            <img class="headerPng" loading="lazy" src="../imagenes/casita2.png" alt="Candado">
+                        </div>
+                    </a>
                 </li>
 
                 <li class="menuItem">
-                    <a href="buscar.html" class="menuLink">Buscar</a>
-                    <img class="headerPng" loading="lazy" src="../imagenes/searcheando.png" alt="Lupa">
+                    <a href="buscar.html" style="text-decoration: none;">
+                        <div class="menuLink">
+                            Buscar
+                            <img class="headerPng" loading="lazy" src="../imagenes/searcheando.png" alt="Candado">
+                        </div>
+                    </a>
                 </li>
 
                 <li class="menuItem">
-                    <a href="#modal-id" style="text-decoration: none;">
-                        <div id="carrito" class="menuLink">Carrito
+                    <a href="#carrito-id" style="text-decoration: none;">
+                        <div id="ver-carrito" class="menuLink">Carrito
                             <div class="carrito1"></div>
                             <div class="carrito2"></div>
                         </div>
@@ -161,7 +169,12 @@
     <!--COMIENZO DEL FOOTER-->
     <!--El css lo puse en index.scss-->
     <div class="footer">
-        <h2 class="footerContenido">Footer</h2>
+        <div class="footerContenido">
+            <h2 class="footerTitulo">Desarrollado por Luciano Caro</h2>
+            <a href="https://github.com/lucianocaro1995" style="text-decoration: none;" target="_blank">
+                <img class="footerImagen" loading="lazy" src="../imagenes/github4.png" alt="Lupa">
+            </a>
+        </div>
     </div>
     <!--FIN DEL FOOTER-->
 
@@ -169,11 +182,11 @@
 
 
 
-    <!--COMIENZO DEL MODAL-->
-    <div id="modal-id" class="modalClass">
+    <!--COMIENZO DEL MODAL DEL CARRITO-->
+    <div id="carrito-id" class="carritoClass">
         <!--Acá inserto el modal para el carrito-->
     </div>
-    <!--FIN DEL MODAL-->
+    <!--FIN DEL MODAL DEL CARRITO-->
 
 
 

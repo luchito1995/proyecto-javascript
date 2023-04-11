@@ -192,6 +192,17 @@ nav {
   padding-right: 0em;
   margin: 0; }
 
+.seccionProductos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #000033;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  padding-right: 5em;
+  padding-left: 5em; }
+
 .divTituloVerMas {
   padding-top: 5em;
   padding-bottom: 5em;
@@ -207,22 +218,15 @@ nav {
   font-style: normal;
   font-weight: normal;
   font-size: 1.6rem;
-  color: #ffd60a; }
+  color: #ffd60a;
+  transition: all 0.5s ease; }
 
-.seccionProductos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #000033;
-  padding-top: 0em;
-  padding-bottom: 0em;
-  padding-right: 5em;
-  padding-left: 5em; }
+.tituloVerMas:hover {
+  transform: scale(1.25); }
 
 .footer {
-  padding-top: 7em;
-  padding-bottom: 7em;
+  padding-top: 6em;
+  padding-bottom: 6em;
   padding-left: 0em;
   padding-right: 0em;
   background-color: #000033;
@@ -231,11 +235,28 @@ nav {
   align-items: center; }
 
 .footerContenido {
+  width: 100%;
+  height: 8em;
+  background-color: #26428B;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.footerTitulo {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 1.6rem;
   color: #ffd60a; }
+
+.footerImagen {
+  height: 2.25em;
+  width: 2.25em;
+  margin-left: 1.5em;
+  transition: all 0.5s ease; }
+
+.footerImagen:hover {
+  transform: scale(1.25); }
 
 /******************************************CARRUSEL******************************************/
 #carrusel {
@@ -375,8 +396,8 @@ li {
   width: 2.5em;
   height: 2.5em;
   cursor: pointer;
-  transition: all 0.5s ease;
-  margin-left: 7.5em; }
+  margin-left: 7.5em;
+  transition: all 0.5s ease; }
 
 .flechaDerecha {
   width: 2.5em;
@@ -384,7 +405,8 @@ li {
   cursor: pointer;
   transition: all 0.5s ease;
   margin-left: auto;
-  margin-right: 7.5em; }
+  margin-right: 7.5em;
+  transition: all 0.5s ease; }
 
 .flechaIzquierda:hover,
 .flechaDerecha:hover {
@@ -433,14 +455,18 @@ li {
   height: 1.5em;
   cursor: pointer;
   z-index: 1;
+  transition: all 0.5s ease;
   animation-name: opacidad;
-  animation-duration: 10s; }
+  animation-duration: 7.5s; }
 
 @keyframes opacidad {
   from {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+.arrowblue:hover {
+  transform: scale(1.5); }
 
 .animacion1 {
   font-family: 'Carter One', cursive;
@@ -690,7 +716,7 @@ input {
 .cartelAgregado.mostrarCartel {
   transform: translateY(-7.5em); }
 
-.modalClass {
+.carritoClass {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -703,11 +729,11 @@ input {
   opacity: 0;
   z-index: -10; }
 
-.modalClass:target {
+.carritoClass:target {
   opacity: 1;
   z-index: 10; }
 
-.modalClass.hidden {
+.carritoClass.hidden {
   display: none; }
 
 .modalContainer {
@@ -746,7 +772,11 @@ input {
   margin-left: auto;
   background-color: transparent;
   border: none;
-  box-shadow: none; }
+  box-shadow: none;
+  transition: all 0.5s ease; }
+
+.modalHeaderButton:hover {
+  transform: scale(1.5); }
 
 .modalContent {
   flex-grow: 1;
@@ -873,7 +903,11 @@ input {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  box-shadow: none; }
+  box-shadow: none;
+  transition: all 0.5s ease; }
+
+.modalProductBorrar:hover {
+  transform: scale(1.5); }
 
 /*
 Para que todo esté en posición relativa y el modalContent mida 100vh - modalHeader - modalFooter, tuve que poner:
@@ -897,21 +931,25 @@ lo que sobre para llegar a 100vh de altura.
   text-align: center;
   background-color: #000033; }
 
-.vaciarCarrito {
+.modalFooterButton {
   width: 30%;
-  color: #ffd60a;
-  cursor: pointer;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: #000033;
+  border: none;
+  box-shadow: none; }
+
+.modalFooterButtonPalabra {
   font-family: 'Carter One', cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 1.25rem;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-top-right-radius: 0.75em;
-  border-bottom-left-radius: 0.75em;
-  background-color: #000033;
-  border: 0.5em solid #000033;
-  box-shadow: none; }
+  color: #ffd60a;
+  cursor: pointer;
+  transition: all 0.5s ease; }
+
+.modalFooterButtonPalabra:hover {
+  transform: scale(1.25); }
 
 .modalFooterTotal {
   width: 40%;
@@ -931,28 +969,6 @@ lo que sobre para llegar a 100vh de altura.
   margin-left: 0.5em;
   font-weight: 1000;
   font-size: 1.25rem; }
-
-.finalizarCompra {
-  width: 30%;
-  color: #ffd60a;
-  cursor: pointer;
-  font-family: 'Carter One', cursive;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.25rem;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-top-right-radius: 0.75em;
-  border-bottom-left-radius: 0.75em;
-  background-color: #000033;
-  border: 0.5em solid #000033;
-  box-shadow: none; }
-
-.vaciarCarrito:hover,
-.finalizarCompra:hover {
-  background-color: #ffd60a;
-  color: #000033;
-  transition: 1s ease; }
 
 .compraCompletada {
   position: fixed;

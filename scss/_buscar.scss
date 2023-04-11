@@ -46,9 +46,12 @@
     height: 1.5em;
     cursor: pointer;
     z-index: 1;
+    //Transición para el hover
+    transition: all 0.5s ease;
 
+    //Animación para la opacidad
     animation-name: opacidad;
-    animation-duration: 10s;
+    animation-duration: 7.5s;
 }
 
 @keyframes opacidad {
@@ -59,6 +62,10 @@
     100% {
         opacity: 1;
     }
+}
+
+.arrowblue:hover {
+    transform: scale(1.5);
 }
 
 

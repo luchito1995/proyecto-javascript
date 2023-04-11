@@ -8,8 +8,8 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 //Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
-const verCarrito = document.getElementById("carrito");
-const modal = document.getElementById("modal-id");
+const verCarrito = document.getElementById("ver-carrito"); //el id está en el header
+const modal = document.getElementById("carrito-id"); //el id está en el div del modal del carrito
 
 
 
@@ -108,24 +108,24 @@ const pintarCarrito = () => {
     const modalFooter = document.createElement("div");
     modalFooter.className = "modalFooter";
     modalFooter.innerHTML = `
-    <button class="vaciarCarrito">
-    <p>Vaciar carrito</p>
+    <button class="modalFooterButton">
+    <p id="vaciar-carrito" class="modalFooterButtonPalabra">Vaciar carrito</p>
     </button>
     <div class="modalFooterTotal">
         <p class="modalFooterTotalPalabra">Total a pagar:</p>
         <p class="modalFooterTotalNumero">$ ${total}</p>
     </div>
-    <button class="finalizarCompra">
-    <p>Finalizar compra</p>
-    <p class="compraCompletada">¡Gracias por elegir súper trajes! 😊</p>
+    <button class="modalFooterButton">
+    <p id="finalizar-compra" class="modalFooterButtonPalabra">Finalizar compra</p>
+    <p id="compra-completada" class="compraCompletada">¡Gracias por elegir súper trajes! 😊</p>
     </button>
     `;
     modalContainer.append(modalFooter);
 
     //Función para que el botón de finalizar compra limpie el storage y aparezca un cartel
-    let vaciarCarrito = document.querySelector(".vaciarCarrito")
-    let finalizarCompra = document.querySelector(".finalizarCompra");
-    let compraCompletada = document.querySelector(".compraCompletada");
+    let vaciarCarrito = document.getElementById("vaciar-carrito")
+    let finalizarCompra = document.getElementById("finalizar-compra");
+    let compraCompletada = document.getElementById("compra-completada");
 
     vaciarCarrito.addEventListener('click', () => {
         localStorage.clear();

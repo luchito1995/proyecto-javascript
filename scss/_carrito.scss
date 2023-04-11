@@ -1,4 +1,4 @@
-.modalClass {
+.carritoClass {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -12,14 +12,14 @@
     z-index: -10;
 }
 
-.modalClass:target {
+.carritoClass:target {
     opacity: 1;
     z-index: 10;
 }
 
 //Clase ".hidden" agregada con Javascript para que no aparezca el fondo del modal cuando refresque la página
 //No entendí muy bien este problema, lo resolví con chat gpt
-.modalClass.hidden {
+.carritoClass.hidden {
     display: none;
 }
 
@@ -76,7 +76,14 @@
     background-color: transparent;
     border: none;
     box-shadow: none;
+    //Transición para el hover
+    transition: all 0.5s ease;
 }
+
+.modalHeaderButton:hover {
+    transform: scale(1.5);
+}
+
 
 
 
@@ -227,6 +234,12 @@
     background-color: transparent;
     border: none;
     box-shadow: none;
+    //Transición para el hover
+    transition: all 0.5s ease;
+}
+
+.modalProductBorrar:hover {
+    transform: scale(1.5);
 }
 
 /*
@@ -258,22 +271,29 @@ lo que sobre para llegar a 100vh de altura.
     background-color: #000033;
 }
 
-.vaciarCarrito {
+.modalFooterButton {
     width: 30%;
-    color: #ffd60a;
-    cursor: pointer;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    //Sacarle los estilos que vienen por defecto en las etiquetas <button> con estas 3 propiedades:
+    background-color: #000033;
+    border: none;
+    box-shadow: none;
+}
+
+.modalFooterButtonPalabra {
     font-family: 'Carter One', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 1.25rem;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-top-right-radius: 0.75em;
-    border-bottom-left-radius: 0.75em;
-    //Sacarle los estilos que vienen por defecto en las etiquetas <button> con estas 3 propiedades:
-    background-color: #000033;
-    border: 0.5em solid #000033;
-    box-shadow: none;
+    color: #ffd60a;
+    cursor: pointer;
+    //Transición para el hover
+    transition: all 0.5s ease;
+}
+
+.modalFooterButtonPalabra:hover {
+    transform: scale(1.25);
 }
 
 .modalFooterTotal {
@@ -296,31 +316,6 @@ lo que sobre para llegar a 100vh de altura.
     margin-left: 0.5em;
     font-weight: 1000;
     font-size: 1.25rem;
-}
-
-.finalizarCompra {
-    width: 30%;
-    color: #ffd60a;
-    cursor: pointer;
-    font-family: 'Carter One', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.25rem;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-top-right-radius: 0.75em;
-    border-bottom-left-radius: 0.75em;
-    //Sacarle los estilos que vienen por defecto en las etiquetas <button> con estas 3 propiedades:
-    background-color: #000033;
-    border: 0.5em solid #000033;
-    box-shadow: none;
-}
-
-.vaciarCarrito:hover,
-.finalizarCompra:hover {
-    background-color: #ffd60a;
-    color: #000033;
-    transition: 1s ease;
 }
 
 

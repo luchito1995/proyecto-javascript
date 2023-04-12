@@ -114,15 +114,3 @@ flechaDerecha.addEventListener('click', () => {
     }
     videos[videoActual].style.zIndex = '1';
 });
-
-
-
-
-
-
-
-
-
-
-
-

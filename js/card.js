@@ -1,3 +1,4 @@
+// 1)
 //Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
 const tienda = document.getElementById("seccion-productos");
 
@@ -5,44 +6,8 @@ const tienda = document.getElementById("seccion-productos");
 
 
 
-//Sin esta función, cuando clickee en "comprar" me van a aparecer TODOS los productos en carrito
-//Con esto le estoy avisando qué es lo que debe subir al carrito
-//Esto me va a servir para llamar a esta función más abajo
-//Llamo a esta función en la línea 66
-function agregarAlCarrito(disfraz) {
-    //"some" sirve para ver si el usuario compra 2 o más veces el mismo producto
-    //Es un valor booleando. Devuelve false para comprar 1 sola vez, true para más veces
-    const repetir = carrito.some((repetirProducto) => repetirProducto.id === disfraz.id);
-
-    //Si el producto se repite, se suma 1 en cantidad. Sino se pushea el producto entero
-    if (repetir === true) {
-        carrito.map((disfrazEnCarrito) => {
-            if (disfrazEnCarrito.id === disfraz.id) {
-                disfrazEnCarrito.cantidad++;
-            }
-        })
-    } else {
-        carrito.push({
-            id: disfraz.id,
-            nombre: disfraz.nombre,
-            categoria: disfraz.categoria,
-            precio: disfraz.precio,
-            imagen: disfraz.imagen,
-            cantidad: 1,
-        });
-    };
-    console.log(carrito);
-    console.log(carrito.length);
-    //Este aparece en carrito.js
-    carritoContador();
-    saveLocal();
-};
-
-
-
-
-
-//Función flecha forEach que voy a usar para agregar contenido al HTML. En este caso voy a agregar las cards a los html
+// 2)
+//Función flecha forEach que voy a usar para agregar contenido al HTML. En este caso voy a agregar las cards al index.html
 disfraces.forEach((disfraz) => {
     const cardProducto = document.createElement("div");
     cardProducto.className = "card";
@@ -60,7 +25,6 @@ disfraces.forEach((disfraz) => {
             </button>
             <div class="precio">$ ${disfraz.precio}</div>
             <button id="${disfraz.id}" class="botonComprar">
-                <p class="cartelAgregado">Agregado al carrito</p>
                 <img class="cardFooterImagen" src="https://i.ibb.co/ypzNP3p/carritosuper2.png" alt="">
             </button>
         </div>
@@ -69,15 +33,36 @@ disfraces.forEach((disfraz) => {
     tienda.append(cardProducto);
 
     //Función para el botón comprar.
+    //La función agregarAlCarrito es el punto 4) del carrito.js
     let botonComprar = cardProducto.querySelector(".botonComprar");
     let cartelAgregado = cardProducto.querySelector(".cartelAgregado");
-    
+
     botonComprar.addEventListener("click", () => {
         agregarAlCarrito(disfraz);
-        cartelAgregado.classList.add("mostrarCartel");
-        setTimeout(() => {
-            cartelAgregado.classList.remove("mostrarCartel");
-        }, 4000);
+        //Pongo el mensaje del tostify
+        Toastify({
+            text: "Agregado al carrito",
+            duration: 2000,
+            close: false,
+            gravity: "bottom",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: '#ffd60a',
+                color: '#000000',
+                fontFamily: 'Carter One, cursive',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: '1.1rem',
+                paddingTop: '0.5em',
+                paddingBottom: '0.5em',
+                paddingLeft: '1.5em',
+                paddingRight: '1.5em',
+                borderTopRightRadius: '1em',
+                borderBottomLeftRadius: '1em'
+            },
+            onClick: function(){}
+        }).showToast();
     });
 });
 
@@ -85,13 +70,5 @@ disfraces.forEach((disfraz) => {
 
 
 
-//Storage: set item
-//Con esto guardo el carrito en el almacenamiento local. Sólo falta ponerlo en el push, línea 35
-const saveLocal = () => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-};
-
-//Storage: get item
-//Esto sirve para guardar los datos incluso si cerrás la página o apagás la computadora
-//Tengo que escribir esta frase en let carrito:
-// JSON.parse(localStorage.getItem("carrito"));
+//Este archivo js solamente lo voy a usar para el index.html
+//Para el buscar.html voy a agregarle las cards de los disfraces mediante fetch y data.json

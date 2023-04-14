@@ -317,33 +317,3 @@ lo que sobre para llegar a 100vh de altura.
     font-weight: 1000;
     font-size: 1.25rem;
 }
-
-
-
-
-
-//Mensaje que aparece cuando clickeas en el botón de finalizar compra
-.compraCompletada {
-    position: fixed;
-    z-index: 3;
-    bottom: -5em;
-    left: 42%;
-    transform: translateX(-50%);
-    background-color: #ffd60a;
-    color: #000000;
-    font-family: 'Carter One', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.1rem;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    border-top-right-radius: 1em;
-    border-bottom-left-radius: 1em;
-}
-
-//Clase ".cartel" agregada desde Javascript
-.compraCompletada.cartel {
-    transform: translateY(-7.5em);
-}

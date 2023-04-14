@@ -106,33 +106,3 @@
 .cardFooterImagen {
     height: 1.25em;
 }
-
-
-
-
-
-//Mensaje que aparece cuando clickeas en el botón de agregar al carrito
-.cartelAgregado {
-    position: fixed;
-    z-index: 3;
-    bottom: -5em;
-    left: 42%;
-    transform: translateX(-50%);
-    background-color: #ffd60a;
-    color: #000000;
-    font-family: 'Carter One', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.1rem;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    border-top-right-radius: 1em;
-    border-bottom-left-radius: 1em;
-}
-
-//Clase ".mostrarCartel" agregada desde Javascript
-.cartelAgregado.mostrarCartel {
-    transform: translateY(-7.5em);
-}

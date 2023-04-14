@@ -1,12 +1,22 @@
+// 1)
+//Storage: get item
+//Esto sirve para guardar los datos incluso si cerrás la página o apagás la computadora
 //Variable carrito (que empieza con un array vacío), donde voy a guardar todos los disfraces que el usuario quiera comprar
 //Tiene que ser let para poder cambiarlo
 //Le pongo el localStorage.getItem para guardar lo que haya agregado al carrito el usuario
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+//Storage: set item
+//Con esto guardo el carrito en el almacenamiento local. Sólo falta ponerlo en el push, línea 191
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};
 
 
 
 
+
+// 2)
 //Enumeración de constantes. (Implementación de DOM para enlazar el archivo html con el js)
 const verCarrito = document.getElementById("ver-carrito"); //el id está en el header
 const modal = document.getElementById("carrito-id"); //el id está en el div del modal del carrito
@@ -15,6 +25,7 @@ const modal = document.getElementById("carrito-id"); //el id está en el div del
 
 
 
+// 3)
 //Creo el modal para el carrito, creo cada parte y luego las añado al const modal. Header, button y content
 //Para el content tenemos que hacer un forEach así muestro lo que clickea el usuario
 const pintarCarrito = () => {
@@ -101,23 +112,22 @@ const pintarCarrito = () => {
     //Función para calcular el total del carrito
     //El método reduce lleva 2 parámetros: "acc" que es el acumulador y "el" que es cada elemento de los productos
     //0 es el número con el que arranca el acumulador
-    //Esto lo utilizo en la línea 110
+    //Esto lo utilizo en la línea 127
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
-    //Pongo el precio total para el modal
+    //Creo el footer
     const modalFooter = document.createElement("div");
     modalFooter.className = "modalFooter";
     modalFooter.innerHTML = `
     <button class="modalFooterButton">
-    <p id="vaciar-carrito" class="modalFooterButtonPalabra">Vaciar carrito</p>
+        <p id="vaciar-carrito" class="modalFooterButtonPalabra">Vaciar carrito</p>
     </button>
     <div class="modalFooterTotal">
         <p class="modalFooterTotalPalabra">Total a pagar:</p>
         <p class="modalFooterTotalNumero">$ ${total}</p>
     </div>
     <button class="modalFooterButton">
-    <p id="finalizar-compra" class="modalFooterButtonPalabra">Finalizar compra</p>
-    <p id="compra-completada" class="compraCompletada">¡Gracias por elegir súper trajes! 😊</p>
+        <p id="finalizar-compra" class="modalFooterButtonPalabra">Finalizar compra</p>
     </button>
     `;
     modalContainer.append(modalFooter);
@@ -130,15 +140,59 @@ const pintarCarrito = () => {
     vaciarCarrito.addEventListener('click', () => {
         localStorage.clear();
         eliminarTodosProductos();
+        //Pongo el mensaje del tostify
+        Toastify({
+            text: "Carrito vacío",
+            duration: 2000,
+            close: false,
+            gravity: "bottom",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: '#ffd60a',
+                color: '#000000',
+                fontFamily: 'Carter One, cursive',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: '1.1rem',
+                paddingTop: '0.5em',
+                paddingBottom: '0.5em',
+                paddingLeft: '1.5em',
+                paddingRight: '1.5em',
+                borderTopRightRadius: '1em',
+                borderBottomLeftRadius: '1em'
+            },
+            onClick: function () { }
+        }).showToast();
     });
 
     finalizarCompra.addEventListener('click', () => {
         localStorage.clear();
         eliminarTodosProductos();
-        compraCompletada.classList.add("cartel");
-        setTimeout(() => {
-            compraCompletada.classList.remove("cartel");
-        }, 4000);
+        //Pongo el mensaje del tostify
+        Toastify({
+            text: "¡Gracias por elegir súper trajes! 😊",
+            duration: 2000,
+            close: false,
+            gravity: "bottom",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: '#ffd60a',
+                color: '#000000',
+                fontFamily: 'Carter One, cursive',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: '1.1rem',
+                paddingTop: '0.5em',
+                paddingBottom: '0.5em',
+                paddingLeft: '1.5em',
+                paddingRight: '1.5em',
+                borderTopRightRadius: '1em',
+                borderBottomLeftRadius: '1em'
+            },
+            onClick: function () { }
+        }).showToast();
     });
 };
 
@@ -146,6 +200,45 @@ const pintarCarrito = () => {
 
 
 
+// 4)
+//Sin esta función, cuando clickee en "comprar" me van a aparecer TODOS los productos en carrito
+//Con esto le estoy avisando qué es lo que debe subir al carrito
+//Esto me va a servir para llamar a esta función más abajo
+//Uso esta función en el botón comprar de cada card
+function agregarAlCarrito(disfraz) {
+    //"some" sirve para ver si el usuario compra 2 o más veces el mismo producto
+    //Es un valor booleando. Devuelve false para comprar 1 sola vez, true para más veces
+    const repetir = carrito.some((repetirProducto) => repetirProducto.id === disfraz.id);
+
+    //Si el producto se repite, se suma 1 en cantidad. Sino se pushea el producto entero
+    if (repetir === true) {
+        carrito.map((disfrazEnCarrito) => {
+            if (disfrazEnCarrito.id === disfraz.id) {
+                disfrazEnCarrito.cantidad++;
+            }
+        })
+    } else {
+        carrito.push({
+            id: disfraz.id,
+            nombre: disfraz.nombre,
+            categoria: disfraz.categoria,
+            precio: disfraz.precio,
+            imagen: disfraz.imagen,
+            cantidad: 1,
+        });
+    };
+    console.log(carrito);
+    console.log(carrito.length);
+
+    carritoContador();
+    saveLocal();
+};
+
+
+
+
+
+// 5)
 //Cuando clickee en el carrito, va a ocurrir la función "pintarCarrito"
 //También va a ocurrir que se va a mostrar el modal, y va a desaparecer el scroll del body
 //Es decir estoy juntando las 2 cosas en esta función
@@ -163,8 +256,8 @@ verCarrito.addEventListener('click', function () {
 
 
 
-
-//Le doy función al "eliminar" creado en la línea 94
+// 6)
+//Función para eliminar cada producto
 //La palabra element puede ser disfraz o cualquier cosa
 const eliminarProducto = (id) => {
     //Lo que el usuario quiere eliminar
@@ -181,11 +274,7 @@ const eliminarProducto = (id) => {
     pintarCarrito();
 };
 
-
-
-
-
-//Eliminar todo el carrito
+//Función para eliminar todos los productos
 const eliminarTodosProductos = () => {
     // Vacía el carrito completamente
     carrito = [];
@@ -200,6 +289,7 @@ const eliminarTodosProductos = () => {
 
 
 
+// 7)
 //Estoy modificando el dibujo al lado de "carrito"
 //Si no compran nada aparece el carrito1 que es un png de carrito. Si compran aparece el carrito2 que es un contador
 //Estoy agregando set item para que cuando se refresque, me siga mostrando el contador con los disfraces clickeados en el local storage
@@ -225,7 +315,9 @@ carritoContador();
 
 
 
-//Clase ".hidden" agregada con Javascript para que no aparezca el fondo del modal cuando refresque la página
+// 8)
+// Esto es un añadido que solamente me sirve para arreglar el css del carrito
+//Clase ".hidden" agregada con Javascript para que no aparezca el fondo del modal del carrito cuando refresque la página
 //No entendí muy bien este problema, lo resolví con chat gpt
 document.addEventListener("DOMContentLoaded", function () {
     modal.classList.add("hidden");

@@ -11,7 +11,7 @@ const disfraces = [
     {
         id: 2,
         nombre: "Disfraz Kim Jong-un",
-        categoria: "Personajes",
+        categoria: "Montado",
         precio: 2000,
         imagen: "https://i.ibb.co/M8w0B7m/a2.jpg",
         cantidad: 1,
@@ -19,7 +19,7 @@ const disfraces = [
     {
         id: 3,
         nombre: "Disfraz Donald Trump",
-        categoria: "Personajes",
+        categoria: "Montado",
         precio: 1400,
         imagen: "https://i.ibb.co/2sTsLdh/a3.jpg",
         cantidad: 1,

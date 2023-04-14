@@ -11,7 +11,7 @@ const disfraces = [
     {
         id: 2,
         nombre: "Disfraz Kim Jong-un",
-        categoria: "Personajes",
+        categoria: "Montado",
         precio: 2000,
         imagen: "https://i.ibb.co/M8w0B7m/a2.jpg",
         cantidad: 1,
@@ -19,7 +19,7 @@ const disfraces = [
     {
         id: 3,
         nombre: "Disfraz Donald Trump",
-        categoria: "Personajes",
+        categoria: "Montado",
         precio: 1400,
         imagen: "https://i.ibb.co/2sTsLdh/a3.jpg",
         cantidad: 1,
@@ -127,9 +127,9 @@ const disfraces = [
 
 
 //Evento para el scroll
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function () {
     let header = document.querySelector("header");
-    header.classList.toggle("abajo",window.scrollY>0);
+    header.classList.toggle("abajo", window.scrollY > 0);
 })
 
 
@@ -141,17 +141,17 @@ window.onload = function () {
     let elemento1 = document.querySelector('h2.animacion1');
     elemento1.classList.add('translate');
 
-    setTimeout(function(){
+    setTimeout(function () {
         let elemento2 = document.querySelector('h2.animacion2');
         elemento2.classList.add('translate');
     }, 750);
 
-    setTimeout(function(){
+    setTimeout(function () {
         let elemento3 = document.querySelector('h2.animacion3');
         elemento3.classList.add('translate');
     }, 1500);
 
-    setTimeout(function(){
+    setTimeout(function () {
         let elemento4 = document.querySelector('h2.animacion4');
         elemento4.classList.add('translate');
     }, 2250);
@@ -159,3 +159,117 @@ window.onload = function () {
 
 
 
+
+
+//Código para el filtro del buscador:
+//Obtener elementos del DOM
+const categoriaSelect = document.getElementById('categoria');
+const ordenarSelect = document.getElementById('ordenar');
+const precioSelect = document.getElementById('precio');
+const buscarInput = document.getElementById('buscar');
+
+//Asignar eventos a los elementos del DOM
+categoriaSelect.addEventListener('change', filtrarDisfraces);
+ordenarSelect.addEventListener('change', filtrarDisfraces);
+precioSelect.addEventListener('change', filtrarDisfraces);
+buscarInput.addEventListener('input', filtrarDisfraces);
+
+//Función para filtrar disfraces
+function filtrarDisfraces() {
+    const categoria = categoriaSelect.value;
+    const orden = ordenarSelect.value;
+    const precio = precioSelect.value;
+    const buscar = buscarInput.value.toLowerCase();
+
+    //Filtrar disfraces
+    const resultados = disfraces.filter(disfraz => {
+        //Filtrar por categoría
+        if (categoria !== 'Todo' && disfraz.categoria !== categoria) {
+            return false;
+        }
+
+        //Filtrar por precio
+        let listaOriginal = disfraces.slice(0); // Crear una copia de la lista original
+
+
+        if (precio === "Todos") {
+            return listaFiltrada = listaOriginal;
+        } else if (precio === "Menor a mayor") {
+            return listaFiltrada = disfraces.sort((a, b) => a.precio - b.precio);
+        } else if (precio === "Mayor a menor") {
+            return listaFiltrada = disfraces.sort((a, b) => b.precio - a.precio);
+        }
+
+        //Filtrar por búsqueda
+        if (buscar !== '' && !disfraz.nombre.toLowerCase().includes(buscar)) {
+            return false;
+        }
+
+        return true;
+    });
+
+    //Ordenar resultados
+    if (orden === 'A - Z') {
+        resultados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    } else if (orden === 'Z - A') {
+        resultados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+    }
+
+    //Mostrar resultados en el HTML
+    mostrarResultados(resultados);
+}
+
+//Función para mostrar los resultados en el HTML
+const tienda = document.getElementById("seccion-productos");
+
+function mostrarResultados(resultados) {
+    tienda.innerHTML = '';
+
+    if (resultados.length === 0) {
+        tienda.innerHTML = `
+        <p class="resultadosNoEncontrados">No se encontraron resultados</p>
+        `;
+        return;
+    }
+
+    resultados.forEach(disfraz => {
+        const cardProducto = document.createElement("div");
+        cardProducto.className = "card";
+        cardProducto.innerHTML = `
+        <div class="cardImagen">
+            <div class="capa">
+                <h2>${disfraz.nombre}</h2>
+            </div>
+            <img src="${disfraz.imagen}" alt="">
+        </div>
+
+        <div class="cardFooter">
+            <button class="verDetalles">
+                <img class="cardFooterImagen" src="https://i.ibb.co/HqFNb69/detalles.png" alt="">
+            </button>
+            <div class="precio">$ ${disfraz.precio}</div>
+            <button id="${disfraz.id}" class="botonComprar">
+                <p class="cartelAgregado">Agregado al carrito</p>
+                <img class="cardFooterImagen" src="https://i.ibb.co/ypzNP3p/carritosuper2.png" alt="">
+            </button>
+        </div>`;
+
+        //Agregar la nueva cardProducto al contenedor de la tienda
+        tienda.append(cardProducto);
+
+        //Función para el botón comprar.
+        let botonComprar = cardProducto.querySelector(".botonComprar");
+        let cartelAgregado = cardProducto.querySelector(".cartelAgregado");
+
+        botonComprar.addEventListener("click", () => {
+            agregarAlCarrito(disfraz);
+            cartelAgregado.classList.add("mostrarCartel");
+            setTimeout(() => {
+                cartelAgregado.classList.remove("mostrarCartel");
+            }, 4000);
+        });
+    });
+}
+
+//Mostrar los disfraces filtrados
+filtrarDisfraces();

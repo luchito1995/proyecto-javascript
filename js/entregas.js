@@ -142,3 +142,10 @@ function crearStringResultado(array) {
 };
 
 alert(crearStringResultado(ordenar(criterio, disfraces)))
+
+
+
+
+
+//ENTREGA N°3
+//En la tercera entrega ya mostré esta página web comenzada, con html y css

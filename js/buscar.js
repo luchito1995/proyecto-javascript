@@ -249,7 +249,6 @@ function mostrarResultados(resultados) {
             </button>
             <div class="precio">$ ${disfraz.precio}</div>
             <button id="${disfraz.id}" class="botonComprar">
-                <p class="cartelAgregado">Agregado al carrito</p>
                 <img class="cardFooterImagen" src="https://i.ibb.co/ypzNP3p/carritosuper2.png" alt="">
             </button>
         </div>`;
@@ -259,17 +258,44 @@ function mostrarResultados(resultados) {
 
         //Función para el botón comprar.
         let botonComprar = cardProducto.querySelector(".botonComprar");
-        let cartelAgregado = cardProducto.querySelector(".cartelAgregado");
 
         botonComprar.addEventListener("click", () => {
             agregarAlCarrito(disfraz);
-            cartelAgregado.classList.add("mostrarCartel");
-            setTimeout(() => {
-                cartelAgregado.classList.remove("mostrarCartel");
-            }, 4000);
+            //Pongo el mensaje del tostify
+            Toastify({
+                text: "Agregado al carrito",
+                duration: 2000,
+                close: false,
+                gravity: "bottom",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                    background: '#ffd60a',
+                    color: '#000000',
+                    fontFamily: 'Carter One, cursive',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontSize: '1.1rem',
+                    paddingTop: '0.5em',
+                    paddingBottom: '0.5em',
+                    paddingLeft: '1.5em',
+                    paddingRight: '1.5em',
+                    borderTopRightRadius: '1em',
+                    borderBottomLeftRadius: '1em'
+                },
+                onClick: function () { }
+            }).showToast();
         });
     });
 }
+
+fetch("data.json")
+.then((resp) => resp.json())
+.then((data) => {
+    console.log(data);
+    mostrarResultados(data); // Llamada a la función mostrarResultados con los datos obtenidos del fetch
+});
+
 
 //Mostrar los disfraces filtrados
 filtrarDisfraces();

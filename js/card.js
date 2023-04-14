@@ -35,7 +35,6 @@ disfraces.forEach((disfraz) => {
     //Función para el botón comprar.
     //La función agregarAlCarrito es el punto 4) del carrito.js
     let botonComprar = cardProducto.querySelector(".botonComprar");
-    let cartelAgregado = cardProducto.querySelector(".cartelAgregado");
 
     botonComprar.addEventListener("click", () => {
         agregarAlCarrito(disfraz);

@@ -52,44 +52,45 @@ function filtrarDisfraces() {
     const orden = ordenarSelect.value;
     const precio = precioSelect.value;
     const buscar = buscarInput.value.toLowerCase();
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            //Filtrar disfraces
+            const resultados = data.disfraces.filter((disfraz) => {
+                //Filtrar por categoría
+                if (categoria !== "Todo" && disfraz.categoria !== categoria) {
+                    return false;
+                }
 
-    //Filtrar disfraces
-    const resultados = disfraces.filter(disfraz => {
-        //Filtrar por categoría
-        if (categoria !== 'Todo' && disfraz.categoria !== categoria) {
-            return false;
-        }
+                //Filtrar por precio
+                let listaOriginal = disfraces.slice(0); // Crear una copia de la lista original
 
-        //Filtrar por precio
-        let listaOriginal = disfraces.slice(0); // Crear una copia de la lista original
+                if (precio === "Todos") {
+                    listaFiltrada = listaOriginal;
+                } else if (precio === "Menor a mayor") {
+                    listaFiltrada = disfraces.sort((a, b) => a.precio - b.precio);
+                } else if (precio === "Mayor a menor") {
+                    listaFiltrada = disfraces.sort((a, b) => b.precio - a.precio);
+                }
 
+                //Filtrar por búsqueda
+                if (buscar !== "" && !disfraz.nombre.toLowerCase().includes(buscar)) {
+                    return false;
+                }
 
-        if (precio === "Todos") {
-            listaFiltrada = listaOriginal;
-        } else if (precio === "Menor a mayor") {
-            listaFiltrada = disfraces.sort((a, b) => a.precio - b.precio);
-        } else if (precio === "Mayor a menor") {
-            listaFiltrada = disfraces.sort((a, b) => b.precio - a.precio);
-        }
+                return true;
+            });
 
+            //Ordenar resultados
+            if (orden === "A - Z") {
+                resultados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            } else if (orden === "Z - A") {
+                resultados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            }
 
-        //Filtrar por búsqueda
-        if (buscar !== '' && !disfraz.nombre.toLowerCase().includes(buscar)) {
-            return false;
-        }
-
-        return true;
-    });
-
-    //Ordenar resultados
-    if (orden === 'A - Z') {
-        resultados.sort((a, b) => a.nombre.localeCompare(b.nombre));
-    } else if (orden === 'Z - A') {
-        resultados.sort((a, b) => b.nombre.localeCompare(a.nombre));
-    }
-
-    //Mostrar resultados en el HTML
-    mostrarResultados(resultados);
+            //Mostrar resultados en el HTML
+            mostrarResultados(resultados);
+        });
 }
 
 //Función para mostrar los resultados en el HTML

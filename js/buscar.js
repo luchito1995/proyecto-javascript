@@ -172,7 +172,6 @@ function mostrarResultados(resultados) {
 
 
 //Fetch con promesas: async y await
-//En el data.json tengo que poner un objeto, no un array, sino no funciona
 const url = '../js/data.json';
 let disfraces = [];
 
@@ -181,7 +180,7 @@ async function obtenerDatosJson() {
         const resp = await fetch(url);
         const data = await resp.json();
         console.log(data);
-        mostrarResultados(data);
+        mostrarResultados(data.disfraces);
     } catch (error) {
         console.error("Error al obtener datos JSON:", error);
     }

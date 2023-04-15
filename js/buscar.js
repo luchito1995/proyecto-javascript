@@ -71,7 +71,7 @@ function filtrarDisfraces() {
         } else if (precio === "Mayor a menor") {
             listaFiltrada = disfraces.sort((a, b) => b.precio - a.precio);
         }
-        
+
 
         //Filtrar por búsqueda
         if (buscar !== '' && !disfraz.nombre.toLowerCase().includes(buscar)) {
@@ -171,22 +171,23 @@ function mostrarResultados(resultados) {
 
 
 
-//Fetch
+//Fetch con promesas: async y await
+//En el data.json tengo que poner un objeto, no un array, sino no funciona
 const url = '../js/data.json';
 let disfraces = [];
 
-fetch(url)
-.then((resp) => resp.json())
-.then((data) => {
-    console.log(data);
-    mostrarResultados(data);
-})
-.catch((error) => {
-    console.error("Error al obtener datos JSON:", error);
-});
+async function obtenerDatosJson() {
+    try {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        console.log(data);
+        mostrarResultados(data);
+    } catch (error) {
+        console.error("Error al obtener datos JSON:", error);
+    }
+}
 
-
-
+obtenerDatosJson();
 
 
 //Mostrar los disfraces filtrados
